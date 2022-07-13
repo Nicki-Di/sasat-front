@@ -12,23 +12,139 @@ yarn dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+## Add redux with toolkit and persist to Next.js
+```bash
+1. npx create-next-app next-redux
+2. npm install @reduxjs/toolkit react-redux
+3. npm i redux-persist 
+```
+4. _app.js
+```bash
+import '../styles/globals.css'
+import {Provider} from "react-redux";
+import store from "../store/store"
+import { PersistGate } from 'redux-persist/integration/react'
+import { persistStore } from 'redux-persist'
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+let storePersist = persistStore(store);
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-## Learn More
+function MyApp({Component, pageProps}) {
+    return (
+        <Provider store = {store}>
+            <PersistGate loading = {null} persistor = {storePersist}>
+                <Component {...pageProps} />
+            </PersistGate>
+        </Provider>
+    )
+}
 
-To learn more about Next.js, take a look at the following resources:
+export default MyApp
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+5. store/store.js
+```bash
+import {combineReducers, configureStore} from "@reduxjs/toolkit"
+import bugsReducer from "./bugs";
+import projectsReducer from "./projects";
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+import storage from 'redux-persist/lib/storage'
+import {
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
+} from 'redux-persist'
 
-## Deploy on Vercel
+const reducers = combineReducers({
+    bugsReducer,
+    projectsReducer
+});
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+const persistConfig = {
+    key: 'root',
+    storage
+};
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+const persistedReducer = persistReducer(persistConfig, reducers);
+
+const store = configureStore({
+    reducer: persistedReducer,
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
+})
+export default store
+
+```
+
+6. store/slice.js
+```bash
+// Create slice to combine createAction with createReducer
+const slice = createSlice({
+    name: "bugs",
+    initialState: [],
+    reducers: {
+        bugAdded: (state, action) => {
+            state.push({
+                id: state.length,
+                title: action.payload.title,
+                resolved: false
+            })
+        },
+        bugRemoved: (state, action) => {
+            state.splice(action.payload.id, 1)
+        },
+        bugResolved: (state, action) => {
+            state[action.payload.id].resolved = true
+        }
+    }
+})
+
+export const {bugAdded, bugRemoved, bugResolved} = slice.actions
+export default slice.reducer
+
+```
+7. dispatch and notify
+```bash
+import {useEffect} from "react";
+import * as actions from "../store/bugs"
+import {useDispatch, useSelector} from "react-redux";
+
+export default function Home() {
+    const dispatcher = useDispatch()
+    const bugs = useSelector(state => state.bugsReducer)
+
+    useEffect(() => {
+        console.log(bugs)
+    }, [bugs]);
+
+    return (
+        <div>
+            <div onClick = {() => {
+                dispatcher(actions.bugAdded({title: "hi"}))
+            }}>
+                add bug!
+            </div>
+
+            <div onClick = {() => {
+                dispatcher(actions.bugResolved({id: 0}))
+            }}>
+                resolve bug!
+            </div>
+            <ul>
+                {
+                    bugs.map(bug => <li key = {bug.id}>{`${bug.id}, ${bug.title}`}</li>)
+                }
+            </ul>
+        </div>
+    )
+}
+
+```

@@ -7,8 +7,8 @@ export default function Home() {
     const bugs = useSelector(state => state.bugsReducer)
 
     useEffect(() => {
-        console.log(bugs)
-    }, [bugs]);
+        console.log("bugs")
+    }, []);
 
     return (
         <div>

@@ -3,9 +3,11 @@ import PersonPinSharpIcon from '@mui/icons-material/PersonPinSharp';
 import RemoveRedEyeRoundedIcon from '@mui/icons-material/RemoveRedEyeRounded';
 import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
 import styles from '../styles/Home.module.css'
+import Input from "./Common/Input";
 
 export default function Login() {
-    const [username, setUser] = useState("");
+    const [username, setUsername] = useState("");
+    const [usernameError, setUsernameError] = useState("");
     const [password, setPassword] = useState("");
     const [valid, setValid] = useState(false);
     const [showPassword, setShowPassword] = useState("password");
@@ -20,6 +22,11 @@ export default function Login() {
         } else {
             setValid(false)
         }
+        if (username === "error") {
+            setUsernameError("نام کاربری اشتباه است.")
+        } else {
+            setUsernameError("")
+        }
 
     }, [username, password])
 
@@ -27,49 +34,39 @@ export default function Login() {
         <div className = {"flex flex-row"}>
             <div className = {"basis-1/3 flex flex-col items-center py-6 gap-6 h-screen justify-between"}>
                 <img src = {"/logo-type.png"} alt = {"logo"} className = {"w-1/2 h-auto "}/>
-                <div className = {"w-3/5 flex flex-col items-center gap-12"}>
+                <div className = {"w-3/5 flex flex-col items-center gap-8"}>
                     <p className = {"h2 text-s-10 "}>ورود به پنل کاربری</p>
                     <p className = {"b1 text-s-30"}>برای ورود، نام کاربری و رمز ورود خود را وارد کنید.</p>
-                    <form className = {"w-full flex flex-col gap-12"}>
-                        <div className = {"relative"}>
-                            <p className = "b1 text-s-30 mb-2 ">
-                                نام کاربری
-                            </p>
-                            <PersonPinSharpIcon
-                                className = {"absolute left-2 top-[38px] " + (username ? "text-s-60 animate-fadeIn" : "text-white")}/>
-                            <input
-                                type = "text"
-                                name = "username"
-                                id = "username"
-                                value = {username}
-                                className = "w-full rounded b1 p-2 border border-s-60 focus:border-s-10 focus:outline-0 focus:border-2"
-                                onChange = {e => {
-                                    setUser(e.target.value);
-                                }}
-                            />
-                        </div>
+                    <form className = {"w-full flex flex-col gap-12 my-4"}>
+
+                        <Input type = {"text"} name = {"username"} title = {"نام کاربری"} state = {username}
+                               setState = {setUsername} error = {usernameError}/>
+
                         <div className = {"relative"}>
                             <p className = "b1 text-s-30 mb-2 ">
                                 رمز ورود
                             </p>
-                            <RemoveRedEyeRoundedIcon
-                                className = {"absolute left-2 top-[38px] cursor-pointer " + (password ? "text-s-60 animate-fadeIn" : "text-white")}
-                                onClick = {() => {
-                                    setShowPassword("text")
-                                }}
-                            />
-                            <VisibilityOffRoundedIcon
-                                className = {"absolute left-2 top-[38px] cursor-pointer text-s-60 " + (showPassword === "text" ? "block " : (styles.hidden))}
-                                onClick = {() => {
-                                    setShowPassword("password")
-                                }}
-                            />
+                            {
+                                showPassword === "password" ? <RemoveRedEyeRoundedIcon
+                                    className = {"absolute left-2 top-[38px] cursor-pointer " + (password ? "text-s-60 animate-fadeIn" : "text-white")}
+                                    onClick = {() => {
+                                        setShowPassword("text")
+                                    }}
+                                /> : <VisibilityOffRoundedIcon
+                                    className = {"absolute left-2 top-[38px] cursor-pointer text-s-60"}
+                                    onClick = {() => {
+                                        setShowPassword("password")
+                                    }}
+                                />
+                            }
+
+
                             <input
                                 type = {showPassword}
                                 name = "password"
                                 id = "password"
                                 value = {password}
-                                className = "w-full rounded b1 p-2 border border-s-60 focus:border-s-10 focus:outline-0 focus:border-2"
+                                className = "w-full rounded b1 p-2 border-2 border-s-60 hover:border-s-10 focus:border-s-10 focus:outline-0 transition-all duration-200 "
                                 onChange = {e => {
                                     setPassword(e.target.value);
                                 }}

@@ -4,29 +4,25 @@ import RemoveRedEyeRoundedIcon from '@mui/icons-material/RemoveRedEyeRounded';
 import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
 import styles from '../styles/Home.module.css'
 import Input from "./Common/Input";
+import Password from "./Common/Password";
 
 export default function Login() {
     const [username, setUsername] = useState("");
     const [usernameError, setUsernameError] = useState("");
     const [password, setPassword] = useState("");
+    const [passwordError, setPasswordError] = useState("");
+
     const [valid, setValid] = useState(false);
-    const [showPassword, setShowPassword] = useState("password");
 
     const submit = async () => {
 
     }
 
     useEffect(() => {
-        if (username && password) {
-            setValid(true)
-        } else {
-            setValid(false)
-        }
-        if (username === "error") {
-            setUsernameError("نام کاربری اشتباه است.")
-        } else {
-            setUsernameError("")
-        }
+
+        username && password ? setValid(true) : setValid(false);
+        username === "error" ? setUsernameError("اشتباه است.") : setUsernameError("");
+        password === "error" ? setPasswordError("اشتباه است.") : setPasswordError("")
 
     }, [username, password])
 
@@ -42,36 +38,9 @@ export default function Login() {
                         <Input type = {"text"} name = {"username"} title = {"نام کاربری"} state = {username}
                                setState = {setUsername} error = {usernameError}/>
 
-                        <div className = {"relative"}>
-                            <p className = "b1 text-s-30 mb-2 ">
-                                رمز ورود
-                            </p>
-                            {
-                                showPassword === "password" ? <RemoveRedEyeRoundedIcon
-                                    className = {"absolute left-2 top-[38px] cursor-pointer " + (password ? "text-s-60 animate-fadeIn" : "text-white")}
-                                    onClick = {() => {
-                                        setShowPassword("text")
-                                    }}
-                                /> : <VisibilityOffRoundedIcon
-                                    className = {"absolute left-2 top-[38px] cursor-pointer text-s-60"}
-                                    onClick = {() => {
-                                        setShowPassword("password")
-                                    }}
-                                />
-                            }
+                        <Password title = {"رمز ورود"} state = {password} setState = {setPassword}
+                                  error = {passwordError}/>
 
-
-                            <input
-                                type = {showPassword}
-                                name = "password"
-                                id = "password"
-                                value = {password}
-                                className = "w-full rounded b1 p-2 border-2 border-s-60 hover:border-s-10 focus:border-s-10 focus:outline-0 transition-all duration-200 "
-                                onChange = {e => {
-                                    setPassword(e.target.value);
-                                }}
-                            />
-                        </div>
                     </form>
                     <button
                         disabled = {!valid}

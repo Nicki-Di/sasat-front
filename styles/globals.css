@@ -1,16 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    padding: 0;
+    margin: 0;
+    font-family: Anjoman, sans-serif;
+    direction: rtl;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
+
+@layer components {
+    .h1 {
+        font-size: 28px;
+        font-weight: 300;
+    }
+    .h2 {
+        font-size: 22px;
+        font-weight: 300;
+    }
+    .b1 {
+        font-size: 15px;
+        font-weight: 400;
+    }
+    .b2 {
+        font-size: 13px;
+        font-weight: 300;
+    }
+}
+
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: 100;
+    src: url('../fonts/eot/Anjoman-FaNum-Thin.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-Thin.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-Thin.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-Thin.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: 300;
+    src: url('../fonts/eot/Anjoman-FaNum-ExtraLight.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-ExtraLight.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-ExtraLight.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-ExtraLight.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/eot/Anjoman-FaNum-Light.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-Light.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-Light.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-Light.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/eot/Anjoman-FaNum-Medium.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-Medium.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-Medium.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-Medium.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: 600;
+    src: url('../fonts/eot/Anjoman-FaNum-SemiBold.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-SemiBold.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-SemiBold.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-SemiBold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: 750;
+    src: url('../fonts/eot/Anjoman-FaNum-ExtraBold.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-ExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-ExtraBold.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-ExtraBold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: 800;
+    src: url('../fonts/eot/Anjoman-FaNum-UltraBold.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-UltraBold.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-UltraBold.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-UltraBold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: 850;
+    src: url('../fonts/eot/Anjoman-FaNum-Black.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-Black.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-Black.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-Black.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/eot/Anjoman-FaNum-Heavy.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-Heavy.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-Heavy.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-Heavy.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: 1000;
+    src: url('../fonts/eot/Anjoman-FaNum-SuperHeavy.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-SuperHeavy.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-SuperHeavy.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-SuperHeavy.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: bold;
+    src: url('../fonts/eot/Anjoman-FaNum-Bold.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-Bold.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-Bold.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+@font-face {
+    font-family: Anjoman;
+    font-style: normal;
+    font-weight: normal;
+    src: url('../fonts/eot/Anjoman-FaNum-Regular.eot');
+    src: url('../fonts/eot/Anjoman-FaNum-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-8 */ url('../fonts/woff2/Anjoman-FaNum-Regular.woff2') format('woff2'), /* FF39+,Chrome36+, Opera24+*/ url('../fonts/woff/Anjoman-FaNum-Regular.woff') format('woff');  /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
+}
+
+

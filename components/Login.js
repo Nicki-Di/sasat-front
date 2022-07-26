@@ -5,17 +5,18 @@ import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
 import styles from '../styles/Home.module.css'
 import Input from "./Common/Input";
 import Password from "./Common/Password";
+import Modal from "./Common/Modal/Modal";
 
 export default function Login() {
     const [username, setUsername] = useState("");
     const [usernameError, setUsernameError] = useState("");
     const [password, setPassword] = useState("");
     const [passwordError, setPasswordError] = useState("");
-
     const [valid, setValid] = useState(false);
+    const [modal, setModal] = useState(false)
 
     const submit = async () => {
-
+        setModal(true)
     }
 
     useEffect(() => {
@@ -51,9 +52,10 @@ export default function Login() {
                     <div className = {"h-px w-full bg-s-90 mt-4"}></div>
                 </div>
                 <p className = {"b1 text-s-10 border-b border-primary cursor-pointer"}>اطلاعات ورود را فراموش کردم</p>
-
-
+                <Modal isOpen = {modal} setIsOpen = {setModal} title = {"ورود موفقیت آمیز بود!"}
+                       body = {"در حال انتقال به پنل کاربری هستید...."} type = {1} extra={"w-1/3 "}/>
             </div>
+
 
             <div className = {"basis-2/3"}>
                 <img src = {"/login-bg.jpg"} alt = {"bg"} className = {"h-screen w-full"}/>

@@ -22,6 +22,6 @@ export default function Input({type, name, title, state, setState, error}) {
                 setState(e.target.value);
             }}
         />
-        <p className={"mt-2 text-alert h-4"}>{error}</p>
+        <p className = {"mt-2 text-alert h-4"}>{error}</p>
     </div>)
 }

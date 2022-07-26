@@ -1,33 +1,23 @@
-import {useEffect} from "react";
-import * as actions from "../store/bugs"
-import {useDispatch, useSelector} from "react-redux";
+import Modal from "../components/Common/Modal/Modal";
+import {useState} from "react";
 
-export default function Test() {
-    const dispatcher = useDispatch()
-    const bugs = useSelector(state => state.bugsReducer)
+export default function MyModal() {
 
-    useEffect(() => {
-        console.log("bugs")
-    }, []);
+    const [isOpen, setIsOpen] = useState(false)
 
     return (
         <div>
-            <div onClick = {() => {
-                dispatcher(actions.bugAdded({title: "hi"}))
-            }} className = {"h1"}>
-                add bug!
+            <div className = "fixed inset-0 flex items-center justify-center">
+                <button
+                    type = "button"
+                    onClick = {() => setIsOpen(true)}
+                    className = "rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-primary hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
+                >
+                    Open dialog
+                </button>
             </div>
-
-            <div onClick = {() => {
-                dispatcher(actions.bugResolved({id: 0}))
-            }}>
-                resolve bug!
-            </div>
-            <ul>
-                {
-                    bugs.map(bug => <li key = {bug.id}>{`${bug.id}, ${bug.title}`}</li>)
-                }
-            </ul>
+            <Modal isOpen = {isOpen} setIsOpen = {setIsOpen} title = {"ورود موفقیت آمیز بود!"}
+                   body = {"در حال انتقال به پنل کاربری هستید...."} type={1}/>
         </div>
     )
 }

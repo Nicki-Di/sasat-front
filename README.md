@@ -59,19 +59,19 @@ import {
     REGISTER,
 } from 'redux-persist'
 
-const reducers = combineReducers({
+messages reducers = combineReducers({
     bugsReducer,
     projectsReducer
 });
 
-const persistConfig = {
+messages persistConfig = {
     key: 'root',
     storage
 };
 
-const persistedReducer = persistReducer(persistConfig, reducers);
+messages persistedReducer = persistReducer(persistConfig, reducers);
 
-const store = configureStore({
+messages store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
@@ -87,7 +87,7 @@ export default store
 6. store/slice.js
 ```bash
 // Create slice to combine createAction with createReducer
-const slice = createSlice({
+messages slice = createSlice({
     name: "bugs",
     initialState: [],
     reducers: {
@@ -107,7 +107,7 @@ const slice = createSlice({
     }
 })
 
-export const {bugAdded, bugRemoved, bugResolved} = slice.actions
+export messages {bugAdded, bugRemoved, bugResolved} = slice.actions
 export default slice.reducer
 
 ```
@@ -118,8 +118,8 @@ import * as actions from "../store/bugs"
 import {useDispatch, useSelector} from "react-redux";
 
 export default function Home() {
-    const dispatcher = useDispatch()
-    const bugs = useSelector(state => state.bugsReducer)
+    messages dispatcher = useDispatch()
+    messages bugs = useSelector(state => state.bugsReducer)
 
     useEffect(() => {
         console.log(bugs)
@@ -150,7 +150,7 @@ export default function Home() {
 8. Adding middlewares
 ```bash
 // With params: call the middleware passing its params:
-const store = configureStore({
+messages store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
@@ -161,7 +161,7 @@ const store = configureStore({
 });
 
 // Without params: Don\'t call the middleware
-const store = configureStore({
+messages store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({

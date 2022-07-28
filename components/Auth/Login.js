@@ -1,13 +1,15 @@
 import {useEffect, useState} from "react";
-import PersonPinSharpIcon from '@mui/icons-material/PersonPinSharp';
-import RemoveRedEyeRoundedIcon from '@mui/icons-material/RemoveRedEyeRounded';
-import VisibilityOffRoundedIcon from '@mui/icons-material/VisibilityOffRounded';
-import styles from '../styles/Home.module.css'
-import Input from "./Common/Input";
-import Password from "./Common/Password";
-import Modal from "./Common/Modal/Modal";
+import Input from "../Common/Input";
+import Password from "../Common/Password";
+import Modal from "../Common/Modal";
+import error from "../../messages/error";
+import success from "../../messages/success";
+import {useDispatch, useSelector} from "react-redux";
+import * as authActions from "../../store/slices/auth";
 
 export default function Login() {
+    const dispatcher = useDispatch()
+
     const [username, setUsername] = useState("");
     const [usernameError, setUsernameError] = useState("");
     const [password, setPassword] = useState("");
@@ -21,15 +23,15 @@ export default function Login() {
 
     useEffect(() => {
 
-        username && password ? setValid(true) : setValid(false);
-        username === "error" ? setUsernameError("اشتباه است.") : setUsernameError("");
-        password === "error" ? setPasswordError("اشتباه است.") : setPasswordError("")
+        username && password && !usernameError && !passwordError ? setValid(true) : setValid(false);
+        username === "error" ? setUsernameError(error[0]) : setUsernameError("");
+        password === "error" ? setPasswordError(error[1]) : setPasswordError("")
 
-    }, [username, password])
+    }, [username, password, usernameError, passwordError])
 
     return (
         <div className = {"flex flex-row"}>
-            <div className = {"basis-1/3 flex flex-col items-center py-6 gap-6 h-screen justify-between"}>
+            <div className = {"basis-1/3 flex flex-col items-center py-6 gap-6 h-screen justify-between "}>
                 <img src = {"/logo-type.png"} alt = {"logo"} className = {"w-1/2 h-auto "}/>
                 <div className = {"w-3/5 flex flex-col items-center gap-8"}>
                     <p className = {"h2 text-s-10 "}>ورود به پنل کاربری</p>
@@ -51,9 +53,12 @@ export default function Login() {
                     </button>
                     <div className = {"h-px w-full bg-s-90 mt-4"}></div>
                 </div>
-                <p className = {"b1 text-s-10 border-b border-primary cursor-pointer"}>اطلاعات ورود را فراموش کردم</p>
-                <Modal isOpen = {modal} setIsOpen = {setModal} title = {"ورود موفقیت آمیز بود!"}
-                       body = {"در حال انتقال به پنل کاربری هستید...."} type = {1} extra={"w-1/3 "}/>
+                <p className = {"b1 text-s-10 border-b border-primary cursor-pointer"}
+                   onClick = {() => dispatcher(authActions.forgetSet())}
+                >اطلاعات ورود را فراموش کردم</p>
+
+                <Modal isOpen = {modal} setIsOpen = {setModal} title = {success[0].title}
+                       body = {success[0].body} type = {1} extra = {"w-1/3 "} cta = {false}/>
             </div>
 
 

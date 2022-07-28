@@ -1,4 +1,4 @@
-import Modal from "../components/Common/Modal/Modal";
+import Modal from "../components/Common/Modal";
 import {useState} from "react";
 
 export default function MyModal() {

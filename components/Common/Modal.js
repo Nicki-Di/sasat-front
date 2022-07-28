@@ -1,8 +1,9 @@
 import {Dialog, Transition} from '@headlessui/react'
 import {Fragment, useEffect, useState} from 'react'
 import CheckBoxRoundedIcon from '@mui/icons-material/CheckBoxRounded';
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 
-export default function Modal({isOpen, setIsOpen, title, body, type, extra}) {
+export default function Modal({isOpen, setIsOpen, title, body, type, extra, cta}) {
     const [color, setColor] = useState("");
     const [icon, setIcon] = useState("");
 
@@ -10,7 +11,7 @@ export default function Modal({isOpen, setIsOpen, title, body, type, extra}) {
         switch (type) {
             case 1:
                 setColor("bg-success-1 border-success");
-                setIcon(<CheckBoxRoundedIcon fontSize="large" className={"text-success"} />)
+                setIcon(<CheckBoxRoundedIcon fontSize = "large" className = {"text-success"}/>)
                 break
         }
     }, [type])
@@ -26,7 +27,7 @@ export default function Modal({isOpen, setIsOpen, title, body, type, extra}) {
                     leaveFrom = "opacity-100"
                     leaveTo = "opacity-0"
                 >
-                    <div className = {"fixed inset-0 bg-white bg-opacity-[10%] backdrop-blur-sm " + extra} />
+                    <div className = {"fixed inset-0 bg-white bg-opacity-[10%] backdrop-blur-sm " + extra}/>
                 </Transition.Child>
 
                 <div className = {"fixed inset-0 overflow-y-auto " + extra}>
@@ -41,11 +42,11 @@ export default function Modal({isOpen, setIsOpen, title, body, type, extra}) {
                             leaveTo = "opacity-0 scale-95"
                         >
                             <Dialog.Panel
-                                className = {"w-full max-w-md transform overflow-hidden rounded p-6 transition-all border-r-8 " + color}>
+                                className = {"w-full max-w-md transform overflow-hidden rounded p-6 transition-all border-r-8 flex flex-col items-center justify-center gap-6 " + color}>
                                 {icon}
                                 <Dialog.Title
                                     as = "h2"
-                                    className = "h2 text-s-10 my-4"
+                                    className = "h2 text-s-10"
                                 >
                                     {title}
                                 </Dialog.Title>
@@ -54,6 +55,17 @@ export default function Modal({isOpen, setIsOpen, title, body, type, extra}) {
                                         {body}
                                     </p>
                                 </div>
+                                {
+                                    cta && (
+                                        <div className = {"flex flex row items-center justify-center cursor-pointer gap-2 "}
+                                             onClick = {() => setIsOpen(false)}
+                                        >
+                                            <p className = {"b1"}>متوجه شدم</p>
+                                            <ArrowBackRoundedIcon/>
+                                        </div>
+                                    )
+                                }
+
 
                             </Dialog.Panel>
                         </Transition.Child>

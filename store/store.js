@@ -1,13 +1,11 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit"
-import bugsReducer from "./bugs";
-import projectsReducer from "./projects";
+import authReducer from "./slices/auth";
 import storage from 'redux-persist/lib/storage'
-import {persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER, persistStore} from 'redux-persist'
+import {persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER} from 'redux-persist'
 import logger from "./middleware/logger";
 
 const reducers = combineReducers({
-    bugsReducer,
-    projectsReducer
+    authReducer
 });
 
 const persistConfig = {
@@ -24,7 +22,7 @@ const store = configureStore({
             serializableCheck: {
                 ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
             },
-        }).concat(logger("param1")),
+        }).concat(logger),
 });
 
 export default store

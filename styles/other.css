@@ -1,3 +1,3 @@
-input:focus, input:active {
-
+.recharts-tooltip-wrapper{
+    z-index: 10;
 }

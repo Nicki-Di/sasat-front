@@ -25,10 +25,11 @@ export default function Forget() {
     }, [email, emailError])
 
     return (
-        <div className = {"flex flex-row"}>
-            <div className = {"basis-1/3 flex flex-col items-center py-6 gap-6 h-screen justify-between "}>
-                <img src = {"/logo-type.png"} alt = {"logo"} className = {"w-1/2 h-auto "}/>
-                <div className = {"w-3/5 flex flex-col items-center justify-around gap-8 h-full"}>
+        <div className = {"basis-1/3"}>
+            <div className = {"flex flex-col items-center py-6 gap-6 h-screen justify-between "}>
+                <img src = {"/auth/logo-type.png"} alt = {"logo"} className = {"w-1/2 h-auto "}/>
+
+                <div className = {"w-3/5 flex flex-col items-center gap-8"}>
                     <p className = {"h2 text-s-10 "}>فراموشی اطلاعات ورود</p>
                     <div className = {"text-center"}>
                         <p className = {"b1 text-s-30 "}>جهت بازیابی اطلاعات ورود، ایمیل کاربری را وارد کنید.</p>
@@ -64,11 +65,6 @@ export default function Forget() {
                 >ورود با نام کاربری و رمز ورود</p>
                 <Modal isOpen = {modal} setIsOpen = {setModal} title = {success[1].title}
                        body = {success[1].body} type = {1} extra = {"w-1/3 "} cta = {true}/>
-            </div>
-
-
-            <div className = {"basis-2/3"}>
-                <img src = {"/login-bg.jpg"} alt = {"bg"} className = {"h-screen w-full"}/>
             </div>
         </div>
     )

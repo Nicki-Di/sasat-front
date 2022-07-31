@@ -30,10 +30,11 @@ export default function Login() {
     }, [username, password, usernameError, passwordError])
 
     return (
-        <div className = {"flex flex-row"}>
-            <div className = {"basis-1/3 flex flex-col items-center py-6 gap-6 h-screen justify-between "}>
-                <img src = {"/logo-type.png"} alt = {"logo"} className = {"w-1/2 h-auto "}/>
-                <div className = {"w-3/5 flex flex-col items-center gap-8"}>
+        <div className = {"basis-1/3"}>
+            <div className = {"flex flex-col items-center py-6 gap-6 h-screen justify-between "}>
+                <img src = {"/auth/logo-type.png"} alt = {"logo"} className = {"w-1/2 h-auto"}/>
+
+                <div className = {"w-3/5 flex flex-col items-center gap-8 "}>
                     <p className = {"h2 text-s-10 "}>ورود به پنل کاربری</p>
                     <p className = {"b1 text-s-30"}>برای ورود، نام کاربری و رمز ورود خود را وارد کنید.</p>
                     <form className = {"w-full flex flex-col gap-12 my-4"}>
@@ -54,17 +55,12 @@ export default function Login() {
                     <div className = {"h-px w-full bg-s-90 mt-4"}></div>
                 </div>
                 <p className = {"b1 text-s-10 border-b border-primary cursor-pointer"}
-                   onClick = {() => dispatcher(authActions.forgetSet())}
-                >اطلاعات ورود را فراموش کردم</p>
+                   onClick = {() => dispatcher(authActions.forgetSet())}>اطلاعات ورود را فراموش کردم</p>
 
                 <Modal isOpen = {modal} setIsOpen = {setModal} title = {success[0].title}
                        body = {success[0].body} type = {1} extra = {"w-1/3 "} cta = {false}/>
             </div>
 
-
-            <div className = {"basis-2/3"}>
-                <img src = {"/login-bg.jpg"} alt = {"bg"} className = {"h-screen w-full"}/>
-            </div>
         </div>
     )
 }

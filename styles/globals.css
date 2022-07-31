@@ -24,17 +24,24 @@ a {
         font-size: 28px;
         font-weight: 300;
     }
+
     .h2 {
         font-size: 22px;
         font-weight: 300;
     }
+
     .b1 {
         font-size: 15px;
         font-weight: 400;
     }
+
     .b2 {
         font-size: 13px;
-        font-weight: 300;
+        font-weight: 400;
+    }
+
+    .custom-shadow {
+        box-shadow: 0 4px 16px rgba(167, 167, 167, 0.25);
     }
 }
 

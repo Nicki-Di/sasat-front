@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
-import Input from "../Common/Input";
+import Input from "../Forms/Input";
 import Modal from "../Common/Modal";
-import error from "../../messages/error";
-import success from "../../messages/success";
+import error from "../../texts/error";
+import success from "../../texts/success";
 import * as authActions from "../../store/slices/auth";
 import {useDispatch} from "react-redux";
 
@@ -26,7 +26,7 @@ export default function Forget() {
 
     return (
         <div className = {"basis-1/3"}>
-            <div className = {"flex flex-col items-center py-6 gap-6 h-screen justify-between "}>
+            <div className = {"flex flex-col items-center py-12 gap-6 h-screen justify-between "}>
                 <img src = {"/auth/logo-type.png"} alt = {"logo"} className = {"w-1/2 h-auto "}/>
 
                 <div className = {"w-3/5 flex flex-col items-center gap-8"}>
@@ -37,7 +37,7 @@ export default function Forget() {
                         <p className = {"b1 text-s-30 "}>در صورت صحیح بودن آدرس ایمیل، اطلاعات ورود برای شما ارسال خواهد
                             شد.</p>
                     </div>
-                    <form className = {"w-full flex flex-col gap-12 my-4"}>
+                    <form className = {"w-full flex flex-col my-4"}>
 
                         <Input type = {"email"} name = {"email"} title = {"آدرس ایمیل"} state = {email}
                                setState = {setEmail} error = {emailError}/>
@@ -60,7 +60,7 @@ export default function Forget() {
                     <div className = {"h-px w-full bg-s-90 mt-4"}></div>
 
                 </div>
-                <p className = {"b1 text-s-10 border-b border-primary cursor-pointer"}
+                <p className = {"b1 text-s-10 border-b-2 border-primary cursor-pointer"}
                    onClick = {() => dispatcher(authActions.loginSet())}
                 >ورود با نام کاربری و رمز ورود</p>
                 <Modal isOpen = {modal} setIsOpen = {setModal} title = {success[1].title}

@@ -5,7 +5,7 @@ export default function IranMap({id}) {
         document.getElementById(id).style.fill = "#FF9A0D"
         document.getElementById(id).style.stroke = "#1A1A1A"
         console.log(document.getElementById(id))
-    }, [])
+    }, [id])
     return (
         <div className = {"w-96 h-auto"}>
             <svg xmlns = "http://www.w3.org/2000/svg" viewBox = "0 0 368 348" fill = "none">

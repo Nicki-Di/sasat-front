@@ -1,9 +1,9 @@
 import {useEffect, useState} from "react";
-import Input from "../Common/Input";
-import Password from "../Common/Password";
+import Input from "../Forms/Input";
+import Password from "../Forms/Password";
 import Modal from "../Common/Modal";
-import error from "../../messages/error";
-import success from "../../messages/success";
+import error from "../../texts/error";
+import success from "../../texts/success";
 import {useDispatch, useSelector} from "react-redux";
 import * as authActions from "../../store/slices/auth";
 
@@ -31,13 +31,13 @@ export default function Login() {
 
     return (
         <div className = {"basis-1/3"}>
-            <div className = {"flex flex-col items-center py-6 gap-6 h-screen justify-between "}>
+            <div className = {"flex flex-col items-center py-12 gap-6 h-screen justify-between "}>
                 <img src = {"/auth/logo-type.png"} alt = {"logo"} className = {"w-1/2 h-auto"}/>
 
                 <div className = {"w-3/5 flex flex-col items-center gap-8 "}>
                     <p className = {"h2 text-s-10 "}>ورود به پنل کاربری</p>
                     <p className = {"b1 text-s-30"}>برای ورود، نام کاربری و رمز ورود خود را وارد کنید.</p>
-                    <form className = {"w-full flex flex-col gap-12 my-4"}>
+                    <form className = {"w-full flex flex-col my-4"}>
 
                         <Input type = {"text"} name = {"username"} title = {"نام کاربری"} state = {username}
                                setState = {setUsername} error = {usernameError}/>
@@ -54,7 +54,7 @@ export default function Login() {
                     </button>
                     <div className = {"h-px w-full bg-s-90 mt-4"}></div>
                 </div>
-                <p className = {"b1 text-s-10 border-b border-primary cursor-pointer"}
+                <p className = {"b1 text-s-10 border-b-2 border-primary cursor-pointer"}
                    onClick = {() => dispatcher(authActions.forgetSet())}>اطلاعات ورود را فراموش کردم</p>
 
                 <Modal isOpen = {modal} setIsOpen = {setModal} title = {success[0].title}

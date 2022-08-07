@@ -1,18 +1,18 @@
 import React, {useEffect, useState} from "react";
 import {PieChart, Pie, Tooltip, Cell} from "recharts";
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
-import addSeparator from "../../consts/functions/addSeparator";
+import addSeparator from "../../utils/functions/addSeparator";
 
 export default function RadialChart({data, title, unit}) {
     const [sum, setSum] = useState(0)
     useEffect(() => {
         setSum((data.reduce((sum, entry) => sum + entry.value, 0)))
-    }, [])
+    }, [data])
     const CustomTooltip = ({active, payload}) => {
         if (active && payload && payload.length) {
             return (
                 <div className = "flex flex-row bg-s-100 p-4 shadow rounded-md">
-                    <p>{`${payload[0].name} : ${addSeparator(payload[0].value)} ${unit}`}</p>
+                    <p>{`${addSeparator(payload[0].value)}${unit} :${payload[0].name}`}</p>
                 </div>
             );
         }
@@ -23,7 +23,7 @@ export default function RadialChart({data, title, unit}) {
         <div className = {"relative b1 flex flex-col items-center justify-center gap-4"}>
 
             <p className = {"text-s-10"}>{title}</p>
-            <div className = {"bg-s-100 rounded-md shadow-lg p-8"}>
+            <div className = {"bg-s-100 rounded-lg shadow-lg p-8"}>
                 <PieChart width = {300} height = {300}>
                     <Pie
                         dataKey = "value"

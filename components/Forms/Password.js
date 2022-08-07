@@ -35,7 +35,7 @@ export default function Password({title, state, setState, error}) {
                 name = "password"
                 id = "password"
                 value = {state}
-                className = {"w-full rounded b1 p-2 border-2 focus:outline-0 " + (error ? "border-alert" : "border-s-60 focus:border-s-10 hover:border-s-10 transition-all duration-200 ")}
+                className = {"w-full rounded b1 p-2 border-2 focus:ring-0 focus:outline-0 " + (error ? "border-alert" : "border-s-60 focus:border-s-10 hover:border-s-10 transition-all duration-200 ")}
                 onChange = {e => {
                     setState(e.target.value);
                 }}

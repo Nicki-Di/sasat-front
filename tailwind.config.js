@@ -1,4 +1,6 @@
-module.exports = {
+const withMT = require("@material-tailwind/react/utils/withMT");
+
+module.exports = withMT({
     content: [
         "./pages/**/*.{js,ts,jsx,tsx}",
         "./components/**/*.{js,ts,jsx,tsx}",
@@ -13,7 +15,7 @@ module.exports = {
             's-90': '#F5F5F5',
             's-100': '#FCFCFC',
             'primary': '#FF9A0D',
-            'primary-1': '#FF9A0D',
+            'primary-1': '#FBBE62',
             'primary-2': '#FBE7C9',
             'accent': '#181FAD',
             'accent-1': '#EBECFF',
@@ -39,4 +41,4 @@ module.exports = {
     plugins: [
         require('@tailwindcss/forms')
     ],
-}
+})

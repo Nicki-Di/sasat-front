@@ -37,7 +37,7 @@ export default function Login() {
                 <div className = {"w-3/5 flex flex-col items-center gap-8 "}>
                     <p className = {"h2 text-s-10 "}>ورود به پنل کاربری</p>
                     <p className = {"b1 text-s-30"}>برای ورود، نام کاربری و رمز ورود خود را وارد کنید.</p>
-                    <form className = {"w-full flex flex-col my-4"}>
+                    <form className = {"w-full flex flex-col my-4 gap-6 "}>
 
                         <Input type = {"text"} name = {"username"} title = {"نام کاربری"} state = {username}
                                setState = {setUsername} error = {usernameError}/>
@@ -54,7 +54,7 @@ export default function Login() {
                     </button>
                     <div className = {"h-px w-full bg-s-90 mt-4"}></div>
                 </div>
-                <p className = {"b1 text-s-10 border-b-2 border-primary cursor-pointer"}
+                <p className = {"b1 text-s-10 border-b border-primary cursor-pointer"}
                    onClick = {() => dispatcher(authActions.forgetSet())}>اطلاعات ورود را فراموش کردم</p>
 
                 <Modal isOpen = {modal} setIsOpen = {setModal} title = {success[0].title}

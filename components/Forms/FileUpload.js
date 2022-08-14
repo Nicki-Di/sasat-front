@@ -9,7 +9,7 @@ export default function FileUpload({name, id ,title, error, selectedFile, setSel
                 className = {"w-full rounded b1 p-1 border-2 mt-1 flex flex-col gap-4 justify-center items-center " + (error ? "border-alert" : "border-s-60 hover:border-s-10 transition-all duration-200 ")}>
                 <div className = "w-full flex flex-row items-center gap-4">
                     <label
-                        htmlFor = "docs"
+                        htmlFor = {id}
                         className = "cursor-pointer font-light text-base text-shades-100 px-2 py-1 rounded-sm bg-shades-40 focus-within:outline-none focus-within:ring-0 "
                     >
                         <span className = {"b1 text-s-10 border-b-2 border-primary "}>انتخاب فایل</span>

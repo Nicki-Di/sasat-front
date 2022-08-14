@@ -55,12 +55,12 @@ export default function Forget() {
                         disabled = {!valid}
                         className = {"b1 w-full p-2 rounded " + (valid ? "text-s-10 bg-primary" : "text-s-30 bg-primary-1 cursor-not-allowed")}
                         onClick = {submit}>
-                        ورود به پنل
+                        بازیابی اطلاعات ورود
                     </button>
                     <div className = {"h-px w-full bg-s-90 mt-4"}></div>
 
                 </div>
-                <p className = {"b1 text-s-10 border-b-2 border-primary cursor-pointer"}
+                <p className = {"b1 text-s-10 border-b border-primary cursor-pointer"}
                    onClick = {() => dispatcher(authActions.loginSet())}
                 >ورود با نام کاربری و رمز ورود</p>
                 <Modal isOpen = {modal} setIsOpen = {setModal} title = {success[1].title}

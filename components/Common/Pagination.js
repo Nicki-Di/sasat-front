@@ -16,7 +16,7 @@ export default function Pagination({pagesNumber}) {
                             onClick = {async () => {
                                 if (currentPage.current > 1) {
                                     currentPage.current--
-                                    await router.push(router.asPath, `${router.pathname}?page=${currentPage.current}`, {shallow: true})
+                                    await router.push(`${router.pathname}?page=${currentPage.current}`,undefined, {shallow: true})
                                 }
                             }}
                         >
@@ -37,7 +37,7 @@ export default function Pagination({pagesNumber}) {
                             onClick = {async () => {
                                 if (currentPage.current < pagesNumber) {
                                     currentPage.current++
-                                    await router.push(router.asPath, `${router.pathname}?page=${currentPage.current}`, {shallow: true})
+                                    await router.push(`${router.pathname}?page=${currentPage.current}`,undefined, {shallow: true})
                                 }
                             }}
                         >

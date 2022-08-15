@@ -89,6 +89,12 @@ export default function NewMessageContainer() {
                             </div>
                             <div
                                 className = {"basis-1/4 flex flex-row b1 rounded py-2 gap-4 items-center justify-center cursor-pointer"}
+                                onClick = {async () => {
+                                    dispatcher(messagesActions.previewMessageSet({}))
+                                    await router.push({
+                                        pathname: '/dashboard/messages',
+                                    })
+                                }}
                             >
                                 <p>انصراف</p>
                                 <CloseRoundedIcon/>

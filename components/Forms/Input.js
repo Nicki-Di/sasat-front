@@ -1,16 +1,25 @@
 import ModeRoundedIcon from '@mui/icons-material/ModeRounded';
 import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
+import {useEffect} from "react";
 
-export default function Input({type, name, title, placeholder, state, setState, error}) {
+export default function Input({type, name, title, placeholder, state, setState, error, complain}) {
+    useEffect(() => {
+        if (complain !== undefined)
+            !complain ? setState("") : setState("اعتراض به قبض")
+    }, [complain])
+
+
     return (<div className = {"relative"}>
         <p className = "b1 text-s-30 mb-2 ">
             {title}
         </p>
         {
             (error ? <WarningRoundedIcon
-                    className = {"absolute left-2 top-[38px] " + (state ? "text-alert animate-fadeIn" : "text-white")}/> :
-                <ModeRoundedIcon
-                    className = {"absolute left-2 top-[38px] " + (state ? "text-s-60 animate-fadeIn" : "text-white")}/>)
+                    className = {"absolute left-2 top-[38px] " + (state ? "text-alert animate-fadeIn" : "text-white")}/>
+                :
+                (!complain &&
+                    <ModeRoundedIcon
+                        className = {"absolute left-2 top-[38px] " + (state ? "text-s-60 animate-fadeIn" : "text-white")}/>))
         }
         {type === "textarea" ?
             <textarea
@@ -26,6 +35,7 @@ export default function Input({type, name, title, placeholder, state, setState, 
             :
 
             <input
+                disabled = {complain}
                 type = {type}
                 name = {name}
                 value = {state}

@@ -1,7 +1,7 @@
 import DashboardLayout from "../../../components/Dashboard/DashboardLayout";
 import MessagesContainer from "../../../components/Message/MessagesContainer";
 
-export default function dashboard() {
+export default function messages() {
     return (
         <div>
             <DashboardLayout/>

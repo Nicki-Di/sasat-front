@@ -11,6 +11,7 @@ import * as messagesActions from "../../store/slices/messages"
 export default function NewMessageContainer() {
     const preview = useSelector(state => state.messagesReducer)[0]
     const [title, setTitle] = useState(preview.title);
+    const [complain, setComplain] = useState(preview.complain);
     const [text, setText] = useState(preview.text);
     const [receivers, setReceivers] = useState(preview.receivers || []);
     const [selectedFile, setSelectedFile] = useState();
@@ -30,12 +31,29 @@ export default function NewMessageContainer() {
                         alt = "layer-icon"
                     />
                     <div className = {"flex flex-col grow "}>
-                        <div className = {"flex flex-row justify-between"}>
+
+                        {/* row 1 */}
+                        <div className = {"flex flex-row gap-8 items-center "}>
                             <div className = {"basis-1/3"}>
                                 <Input type = {"text"} name = {"title"} title = {"موضوع پیام"}
                                        placeholder = {"موضوع پیام را اینجا بنویسید..."} state = {title}
-                                       setState = {setTitle}/>
+                                       setState = {setTitle} complain = {complain}/>
                             </div>
+                            <div className = "flex items-center gap-3 ">
+                                <input id = {'complain'}
+                                       type = "checkbox"
+                                       checked = {complain}
+                                       onChange = {() => setComplain(!complain)}
+                                       className = " w-4 h-4 text-blue-600 text-primary rounded-sm border border-s-10 focus:shadow-none transition-all duration-200 "/>
+                                <label htmlFor = {'complain'}
+                                       className = "b1 text-gray-900 dark:text-gray-300">
+                                    نامه اعتراض به قبض
+                                </label>
+                            </div>
+                        </div>
+
+                        {/* row 2 */}
+                        <div className = {"flex flex-row gap-8 mb-6"}>
                             <div className = {"basis-1/3"}>
                                 <FileUpload name = {"doc"} id = {"doc"} title = {"فایل پیوست"}
                                             selectedFile = {selectedFile}
@@ -45,7 +63,7 @@ export default function NewMessageContainer() {
                                        setReceivers = {setReceivers}/>
                         </div>
 
-
+                        {/* row 3 */}
                         <Input type = {"textarea"} name = {"title"} title = {"متن پیام"}
                                placeholder = {"موضوع پیام را اینجا بنویسید..."} state = {text}
                                setState = {setText}/>
@@ -58,7 +76,8 @@ export default function NewMessageContainer() {
                                         title,
                                         text,
                                         fileName: selectedFile?.name,
-                                        receivers
+                                        receivers,
+                                        complain
                                     }))
                                     await router.push({
                                         pathname: '/dashboard/messages/preview',

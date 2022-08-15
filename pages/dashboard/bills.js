@@ -1,11 +1,11 @@
 import DashboardLayout from "../../components/Dashboard/DashboardLayout";
-import DashboardMain from "../../components/TJ/DashboardMain";
+import BillsContainer from "../../components/Bill/BillsContainer";
 
-export default function dashboard() {
+export default function bills() {
     return (
         <div>
             <DashboardLayout/>
-            <DashboardMain/>
+            <BillsContainer/>
         </div>
     )
 }

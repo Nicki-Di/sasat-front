@@ -37,7 +37,9 @@ export default function SingleMessage({type, message}) {
                             </div>
                             <div
                                 className = {"flex flex-row b1 rounded py-2 gap-4 items-center justify-center cursor-pointer"}
-                                onClick = {router.back}
+                                onClick = {async () => await router.push({
+                                    pathname: '/dashboard/messages/newMessage',
+                                })}
                             >
                                 <p>ویرایش پیام</p>
                                 <CreateIcon/>

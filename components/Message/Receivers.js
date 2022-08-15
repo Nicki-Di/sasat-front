@@ -11,14 +11,14 @@ export default function Receivers({isOpen, setIsOpen, receivers, setReceivers}) 
     const createList = list => {
         return (
             list?.map((contact, index) =>
-                <div className = "flex items-center gap-4 " key = {contact}>
+                <div className = "flex items-center gap-3 " key = {contact}>
                     {
                         typeof (setReceivers) === 'function' &&
                         <input id = {`checkbox-${index}`}
                                type = "checkbox"
                                checked = {receivers.includes(contact)}
                                onChange = {() => receivers.includes(contact) ? setReceivers(receivers.filter(receiver => receiver !== contact)) : setReceivers([...receivers, contact])}
-                               className = "w-4 h-4 text-blue-600 text-primary rounded focus:ring-0 focus:shadow-none transition-all duration-200 "/>
+                               className = "w-4 h-4 text-blue-600 text-primary rounded-sm border border-s-10 focus:ring-0 focus:shadow-none transition-all duration-200 "/>
                     }
                     <label htmlFor = {`checkbox-${index}`}
                            className = "b1 text-gray-900 dark:text-gray-300">{contact}</label>
@@ -87,7 +87,7 @@ export default function Receivers({isOpen, setIsOpen, receivers, setReceivers}) 
                                     </div>
                                     {
                                         typeof (setReceivers) === 'function' ? <div
-                                                className = {"flex flex-row items-center w-full items-center justify-between w-[20vw]"}>
+                                                className = {"flex flex-row items-center justify-between w-[20vw]"}>
                                                 <div
                                                     className = {"basis-1/2 flex flex-row bg-primary b1 rounded py-2 gap-4 items-center justify-center cursor-pointer"}
                                                     onClick = {() => setIsOpen(false)}

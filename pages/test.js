@@ -1,16 +1,4 @@
-import * as messagesActions from "../store/slices/messages"
-import {useDispatch} from "react-redux";
+const formula = {type: "فرمول D12", p1: "14", p2: "56"}
 
-export default function Test() {
-    const dispatcher = useDispatch()
-
-    return (
-        <div onClick={()=> dispatcher(messagesActions.messagedAdded(    {
-            name: 'Jane Cooper',
-            title: 'Regional Paradigm Technician',
-            role: 'Admin',
-            email: 'jane.co9oper@example.com',
-            status: "دیده شده"
-        }))}>click me</div>
-    )
-}
+console.log(Object.keys(formula));
+console.log(Object.values(formula));

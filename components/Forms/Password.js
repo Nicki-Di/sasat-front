@@ -3,7 +3,7 @@ import VisibilityOffRoundedIcon from "@mui/icons-material/VisibilityOffRounded";
 import {useState} from "react";
 import WarningRoundedIcon from "@mui/icons-material/WarningRounded";
 
-export default function Password({title, state, setState, error}) {
+export default function Password({title, state, setState, error, placeholder, tip}) {
     const [showPassword, setShowPassword] = useState("password");
 
     return (
@@ -32,6 +32,7 @@ export default function Password({title, state, setState, error}) {
 
             <input
                 type = {showPassword}
+                placeholder = {placeholder}
                 name = "password"
                 id = "password"
                 value = {state}
@@ -40,7 +41,11 @@ export default function Password({title, state, setState, error}) {
                     setState(e.target.value);
                 }}
             />
-            <p className = {"mt-2 text-alert h-4"}>{error}</p>
+            {
+                tip && !error ? <p className = {"mt-2 text-s-30 h-4"}>{tip}</p> :
+                    <p className = {"mt-2 text-alert h-4"}>{error}</p>
+            }
+
 
         </div>
     )

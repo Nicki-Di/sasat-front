@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import Input from "../Forms/Input";
 import Modal from "../Common/Modal";
-import error from "../../texts/error";
-import success from "../../texts/success";
+import error from "../../utils/texts/error";
+import success from "../../utils/texts/success";
 import * as authActions from "../../store/slices/auth";
 import {useDispatch} from "react-redux";
 

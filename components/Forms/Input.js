@@ -11,7 +11,7 @@ export default function Input({type, name, title, placeholder, state, setState, 
 
     return (<div className = {"relative"}>
         <p className = "b1 text-s-30 mb-2 ">
-            {title}
+            {title ?? title}
         </p>
         {
             (error ? <WarningRoundedIcon

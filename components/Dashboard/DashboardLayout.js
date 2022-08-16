@@ -26,7 +26,7 @@ export default function DashboardLayout() {
                 <div className = "flex flex-col items-center gap-2 px-4 border-b border-s-90 pb-2">
                     <img
                         className = "h-8 w-auto"
-                        src = "/dashboard/layer-icon.png"
+                        src = "/common/person-icon.png"
                         alt = "layer-icon"
                     />
                     <p className = {"b2 text-s-10"}>{`پنل ${userState.role}`}</p>

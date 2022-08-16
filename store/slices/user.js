@@ -4,7 +4,14 @@ import {createSlice} from "@reduxjs/toolkit";
 // Create slice to combine createAction with createReducer
 const slice = createSlice({
     name: "user",
-    initialState: {name: "رضا محمدی", role: "تجمیع کننده", area: "منطقه 1 - شهر تهران"},
+    initialState: {
+        name: "رضا محمدی",
+        role: "تجمیع کننده",
+        area: "منطقه 1 - شهر تهران",
+        username: "TavanirAdmin",
+        email: "Tajmi123@gmail.com",
+        password: "a@324532",
+    },
     reducers: {
         userSet: (state, action) => {
             state.name = action.payload.name

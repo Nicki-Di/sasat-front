@@ -116,5 +116,12 @@
 }
 
 .hidden {
-  display: none !important;
+    display: none !important;
+}
+
+.customGrid2 {
+    grid-template-columns: repeat(2, minmax(0, 12rem));
+}
+.customGrid3 {
+    grid-template-columns: repeat(3, minmax(0, 12rem));
 }

@@ -1,5 +1,5 @@
 import addSeparator from "../../utils/functions/addSeparator";
-import billMessages from "../../texts/bill";
+import billMessages from "../../utils/texts/bill";
 import BillBadge from "./BillBadge";
 import KeyboardArrowLeftRoundedIcon from "@mui/icons-material/KeyboardArrowLeftRounded";
 import DoneRoundedIcon from "@mui/icons-material/DoneRounded";
@@ -42,7 +42,7 @@ export default function Bill({info, lastBill}) {
 
             {
                 lastBill === 1 ?
-                    (notAccepted && <Link href={"/dashboard/bills"}>
+                    (notAccepted && <Link href={"/dashboard/index"}>
                         <a className = {"cursor-pointer b1 text-s-10 bg-primary rounded p-2 flex flex-row w-fit items-center justify-center self-center"}>
                             <p>مشاهده جزئیات</p>
                             <KeyboardArrowLeftRoundedIcon/>

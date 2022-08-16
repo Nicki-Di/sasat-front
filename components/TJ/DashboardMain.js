@@ -13,12 +13,11 @@ const data = [
 export default function DashboardMain() {
     const userState = useSelector(state => state.userReducer);
 
-
     return (
         <main className = "w-[87%] mr-auto p-8 flex flex-col gap-16">
             <div className = {"flex flex-row gap-16"}>
                 <RadialChart data = {data} title = {"سهمیه کاهش بار لازم الاجرا"} unit = {"MW"}/>
-                <MainDashboardLeftTop formula = {{type: "فرمول D12", p1: "14", p2: "56"}}/>
+                <MainDashboardLeftTop formula = {["فرمول D12", "14", "56"]}/>
             </div>
             <div className = {"flex flex-col bg-s-100 p-4 shadow-lg rounded-lg gap-4 "}>
                 <p className = {"text-s-10 h2 text-center"}>{`وضعیت مصرف ${userState.role} - ${userState.area}`}</p>

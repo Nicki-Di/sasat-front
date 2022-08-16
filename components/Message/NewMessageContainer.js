@@ -27,7 +27,7 @@ export default function NewMessageContainer() {
                 <div className = {"flex flex-row gap-8 p-16"}>
                     <img
                         className = "w-8 h-8"
-                        src = "/dashboard/layer-icon.png"
+                        src = "/common/person-icon.png"
                         alt = "layer-icon"
                     />
                     <div className = {"flex flex-col grow "}>

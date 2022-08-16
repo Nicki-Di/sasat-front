@@ -1,4 +1,4 @@
-import {head} from '../../texts/messagesTable'
+import {head} from '../../utils/texts/messagesTable'
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import Link from "next/link";
 import {useRouter} from "next/router";

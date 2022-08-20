@@ -10,21 +10,40 @@ export default function Receivers({isOpen, setIsOpen, receivers, setReceivers}) 
 
     const createList = list => {
         return (
-            list?.map((contact, index) =>
-                <div className = "flex items-center gap-3 " key = {contact}>
-                    {
-                        typeof (setReceivers) === 'function' &&
-                        <input id = {`checkbox-${index}`}
+            <div className = {"flex flex-col gap-3 "}>
+                { typeof (setReceivers) === 'function' &&
+                    <div className = {"flex items-center gap-3"}>
+                        <input id = {"all"}
                                type = "checkbox"
-                               checked = {receivers.includes(contact)}
-                               onChange = {() => receivers.includes(contact) ? setReceivers(receivers.filter(receiver => receiver !== contact)) : setReceivers([...receivers, contact])}
+                               onChange = {() => setReceivers(list)}
                                className = "w-4 h-4 text-blue-600 text-primary rounded-sm border border-s-10 focus:ring-0 focus:shadow-none transition-all duration-200 "/>
-                    }
-                    <label htmlFor = {`checkbox-${index}`}
-                           className = "b1 text-gray-900 dark:text-gray-300">{contact}</label>
-                </div>
-            )
+
+                        <label htmlFor = {"all"}
+                               className = "b1 text-gray-900 dark:text-gray-300">همه‌ی مخاطبان</label>
+                    </div>
+
+                }
+                { typeof (setReceivers) === 'function' &&
+                    <div className = {"border-b border-s-80 "}/>
+                }
+
+                {list?.map((contact, index) =>
+                    <div className = "flex items-center gap-3 " key = {contact}>
+                        {
+                            typeof (setReceivers) === 'function' &&
+                            <input id = {`checkbox-${index}`}
+                                   type = "checkbox"
+                                   checked = {receivers.includes(contact)}
+                                   onChange = {() => receivers.includes(contact) ? setReceivers(receivers.filter(receiver => receiver !== contact)) : setReceivers([...receivers, contact])}
+                                   className = "w-4 h-4 text-blue-600 text-primary rounded-sm border border-s-10 focus:ring-0 focus:shadow-none transition-all duration-200 "/>
+                        }
+                        <label htmlFor = {`checkbox-${index}`}
+                               className = "b1 text-gray-900 dark:text-gray-300">{contact}</label>
+                    </div>
+                )}
+            </div>
         )
+
     }
 
     return (

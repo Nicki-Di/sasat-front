@@ -7,7 +7,7 @@ export default function dashboard() {
     return (
         <div>
             <DashboardLayout userState = {userState}/>
-            <DashboardMain/>
+            <DashboardMain userState = {userState}/>
         </div>
     )
 }

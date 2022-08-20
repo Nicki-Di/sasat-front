@@ -8,13 +8,21 @@ import IranMap from "../TZ/IranMap";
 import TreeMap from "../Charts/TreeMap";
 import DropDown from "../Common/DropDown";
 
-const data = [
+const data1 = [
     {name: "محقق شده", value: 100000, color: "#005916", bullet: `text-success`},
     {name: "مانده تعهد", value: 500000, color: "#808080", bullet: "text-s-60"}
 ]
 
-export default function DashboardMain() {
-    const userState = useSelector(state => state.userReducer);
+const data2 = [
+    {id: 0, name: 'همه مناطق'},
+    {id: 1, name: 'منطقه ۱'},
+    {id: 2, name: 'منطقه ۲'},
+    {id: 3, name: 'منطقه ۳'},
+    {id: 4, name: 'منطقه ۴'},
+]
+
+
+export default function DashboardMain({userState}) {
 
     return (
         <main className = "w-[87%] mr-auto p-8">
@@ -23,7 +31,7 @@ export default function DashboardMain() {
                 userState.role === "تجمیع کننده" &&
                 <div className = {"flex flex-col gap-16"}>
                     <div className = {"flex flex-row gap-16"}>
-                        <RadialChart data = {data} title = {"سهمیه کاهش بار لازم الاجرا"} unit = {"MW"}/>
+                        <RadialChart data = {data1} title = {"سهمیه کاهش بار لازم الاجرا"} unit = {"MW"}/>
                         <MainDashboardLeftTop formula = {["فرمول D12", "14", "56"]}/>
                     </div>
                     <div className = {"flex flex-col bg-s-100 p-4 shadow-lg rounded-lg gap-4 "}>
@@ -45,7 +53,7 @@ export default function DashboardMain() {
                 <div className = {"flex flex-col gap-16"}>
                     <div className = {"flex flex-row justify-evenly items-center bg-s-100 rounded-lg shadow-lg p-8"}>
                         <IranMap id = {"agg1"}/>
-                        <RadialChart data = {data} title = {"سهمیه کاهش بار لازم الاجرا"} unit = {"MW"} bg = {false}
+                        <RadialChart data = {data1} title = {"سهمیه کاهش بار لازم الاجرا"} unit = {"MW"} bg = {false}
                                      orientation = {"horizontal"}/>
                     </div>
                     <div className = {"flex flex-col gap-8 bg-s-100 rounded-lg shadow-lg p-8 "}>
@@ -61,7 +69,7 @@ export default function DashboardMain() {
                         <p className = {"text-s-10 h2 text-center"}>{`وضعیت مصرف تجمیع کنندگان - ${userState.area}`}</p>
                         <div
                             className = {"flex flex-row items-center justify-between gap-4 border-b pb-10 border-s-80 "}>
-                            <DropDown/>
+                            <DropDown data = {data2}/>
                             <DatePickerContainer/>
                             <Export/>
                         </div>

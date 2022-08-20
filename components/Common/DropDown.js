@@ -2,15 +2,7 @@ import {Fragment, useState} from 'react'
 import {Combobox, Transition} from '@headlessui/react'
 import {CheckIcon, ChevronDownIcon} from '@heroicons/react/solid'
 
-const data = [
-    {id: 0, name: 'همه مناطق'},
-    {id: 1, name: 'منطقه ۱'},
-    {id: 2, name: 'منطقه ۲'},
-    {id: 3, name: 'منطقه ۳'},
-    {id: 4, name: 'منطقه ۴'},
-]
-
-export default function DropDown() {
+export default function DropDown({data}) {
     const [selected, setSelected] = useState(data[0])
     const [query, setQuery] = useState('')
 

@@ -6,13 +6,13 @@ import {useSelector} from "react-redux";
 export default function message() {
     const router = useRouter()
     const {id} = router.query
-
+    const userState = useSelector(state => state.userReducer);
     const message = useSelector(state => state.messagesReducer)[id]
 
     return (
         <div>
-            <DashboardLayout/>
-            <SingleMessage type={2} message={message} />
+            <DashboardLayout userState = {userState}/>
+            <SingleMessage type = {2} message = {message}/>
         </div>
     )
 }

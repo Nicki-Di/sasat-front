@@ -8,8 +8,7 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function DashboardLayout() {
-    const userState = useSelector(state => state.userReducer);
+export default function DashboardLayout({userState}) {
     const [navigation, setNavigation] = useState(otherNavigation);
     const router = useRouter();
 

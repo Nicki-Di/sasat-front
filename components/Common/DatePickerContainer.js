@@ -6,7 +6,7 @@ export default function DatePickerContainer() {
     const date = useSelector(state => state.datePickerReducer)
 
     return (
-        <div className={"flex flex-col gap-4 items-center justify-center bg-s-90 rounded p-5 basis-2/3 "}>
+        <div className={"flex flex-col gap-4 items-center justify-center bg-s-90 rounded p-5 grow "}>
             <p className = {"b1 text-s-30"}> فیلتر تاریخ</p>
             <div className = {"flex flex-row gap-5 items-center justify-center"}>
                 <p className = {"text-s-60 b1"}>در حال نمایش</p>

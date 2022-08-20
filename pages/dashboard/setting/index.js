@@ -8,7 +8,7 @@ export default function setting() {
     return (
         <div>
             <DashboardLayout userState = {userState}/>
-            <SettingContainer/>
+            <SettingContainer userState={userState}/>
         </div>
     )
 }

@@ -7,14 +7,14 @@ import {useState} from "react";
 import Input from "../Forms/Input";
 import Password from "../Forms/Password";
 
-export default function SettingChangeable({userState, edit}) {
+export default function SettingChangeable({userState, edit, lastRow = false}) {
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
 
     return (
-        <div className = {"border-b border-s-80 pb-8 "}>
+        <div className = {"pb-8 " + (!lastRow && "border-b border-s-80 ")}>
             {
                 edit ?
                     <form className = {"flex flex-row gap-8 flex-1 "}>

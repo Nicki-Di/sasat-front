@@ -10,35 +10,36 @@ const tariff = ["300,000 ریال", "600,000 ریال"]
 const contract = ["454323456", "gharardad tozi 1"]
 const duty = ["فیدر 1  فیدر 2", "700,000 MW"]
 
-export default function SettingContainer() {
-    const userState = useSelector(state => state.userReducer);
+export default function SettingContainer({userState}) {
     const [edit, setEdit] = useState(false)
 
 
     return (
         <main className = "w-[87%] mr-auto p-8 flex flex-col gap-16 items-center">
             <div className = "flex flex-col w-full p-8 bg-s-100 shadow rounded-md gap-8">
-                <SettingHeader userState = {userState} edit={edit} setEdit = {setEdit}/>
+                <SettingHeader userState = {userState} edit = {edit} setEdit = {setEdit}/>
                 <SettingChangeable userState = {[userState.username, userState.email, userState.password]}
-                                   edit = {edit}/>
+                                   edit = {edit} lastRow = {userState.role !== "تجمیع کننده"}/>
                 {
                     /* row 1 */
-                    !edit && <Row keys = {billFormula} values = {formula}/>
+                    userState.role === "تجمیع کننده" && !edit && <Row keys = {billFormula} values = {formula}/>
                 }
 
                 {
                     /* row 2 */
-                    !edit && <Row keys = {billTariff} values = {tariff}/>
+                    userState.role === "تجمیع کننده" && !edit && <Row keys = {billTariff} values = {tariff}/>
                 }
 
                 {
                     /* row 3 */
-                    !edit && <Row keys = {billContract} values = {contract} downloadButton = {true}/>
+                    userState.role === "تجمیع کننده" && !edit &&
+                    <Row keys = {billContract} values = {contract} downloadButton = {true}/>
                 }
 
                 {
                     /* row 4 */
-                    !edit && <Row keys = {billDuty} values = {duty} lastRow = {true}/>
+                    userState.role === "تجمیع کننده" && !edit &&
+                    <Row keys = {billDuty} values = {duty} lastRow = {true}/>
                 }
 
             </div>

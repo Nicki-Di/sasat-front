@@ -13,12 +13,12 @@ export default function Receivers({isOpen, setIsOpen, receivers, setReceivers}) 
             <div className = {"flex flex-col gap-3 "}>
                 { typeof (setReceivers) === 'function' &&
                     <div className = {"flex items-center gap-3"}>
-                        <input id = {"all"}
+                        <input id = "all"
                                type = "checkbox"
                                onChange = {() => setReceivers(list)}
                                className = "w-4 h-4 text-blue-600 text-primary rounded-sm border border-s-10 focus:ring-0 focus:shadow-none transition-all duration-200 "/>
 
-                        <label htmlFor = {"all"}
+                        <label htmlFor = "all"
                                className = "b1 text-gray-900 dark:text-gray-300">همه‌ی مخاطبان</label>
                     </div>
 

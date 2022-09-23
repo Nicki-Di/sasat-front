@@ -1,6 +1,7 @@
 import DashboardLayout from "../../../components/Dashboard/DashboardLayout";
 import BillsContainer from "../../../components/Bill/BillsContainer";
 import {useSelector} from "react-redux";
+import DashboardMain from "../../../components/Dashboard/DashboardMain";
 
 export default function bills() {
     const userState = useSelector(state => state.userReducer);
@@ -8,7 +9,9 @@ export default function bills() {
     return (
         <div>
             <DashboardLayout userState = {userState}/>
-            <BillsContainer/>
+            <DashboardMain>
+                <BillsContainer/>
+            </DashboardMain>
         </div>
     )
 }

@@ -2,8 +2,7 @@ import {Fragment, useState} from 'react'
 import {Combobox, Transition} from '@headlessui/react'
 import {CheckIcon, ChevronDownIcon} from '@heroicons/react/solid'
 
-export default function DropDown({data}) {
-    const [selected, setSelected] = useState(data[0])
+export default function DropDown({data, selected, setSelected, className}) {
     const [query, setQuery] = useState('')
 
     const filteredData =
@@ -16,16 +15,12 @@ export default function DropDown({data}) {
             )
 
     return (
-        <div className={"flex flex-col gap-4 items-center justify-center bg-s-90 rounded p-5"}>
-            <p className={"b1 text-s-30 "}>تغییر مناطق در حال نمایش </p>
-        <div className = "flex flex-row items-center gap-5 ">
-            <p className={"b1 text-s-60 "}>در حال نمایش</p>
             <Combobox value = {selected} onChange = {setSelected}>
                 <div className = "relative mt-1">
                     <div
                         className = "relative w-full cursor-default overflow-hidden rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2">
                         <Combobox.Input
-                            className = "w-full border-none py-2 px-6 b1 bg-s-80 leading-5 text-s-10 focus:ring-0"
+                            className = {"w-full py-2 px-6 b1 leading-5 text-s-10 focus:ring-0 " + className}
                             displayValue = {(item) => item.name}
                             onChange = {(event) => setQuery(event.target.value)}
                         />
@@ -50,9 +45,9 @@ export default function DropDown({data}) {
                                     نتیجه‌ای وجود ندارد.
                                 </div>
                             ) : (
-                                filteredData.map((item) => (
+                                filteredData.map((item, index) => (
                                     <Combobox.Option
-                                        key = {item.id}
+                                        key = {index}
                                         className = {({active}) =>
                                             `relative cursor-pointer select-none py-2 px-6 text-s-10 ${
                                                 active && 'bg-primary'
@@ -85,7 +80,6 @@ export default function DropDown({data}) {
                     </Transition>
                 </div>
             </Combobox>
-        </div>
-        </div>
+
     )
 }

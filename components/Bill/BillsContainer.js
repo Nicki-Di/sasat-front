@@ -41,13 +41,11 @@ export default function BillsContainer() {
         <Bill key = {index} info = {bill} lastBill = {2}/>))
 
     return (
-        <main className = "w-[87%] mr-auto p-8 flex flex-col gap-16 items-center">
-            <div className = "flex flex-col w-full p-8 bg-s-100 shadow rounded-md gap-8 items-center">
-                <p className = {"h2 text-s-10 "}>قبض های تجمیع کننده</p>
-                {shownBills}
-                <Pagination pagesNumber = {pagesNumber}/>
+        <div className={"flex flex-col items-center justify-center gap-8 p-8 "}>
+            <p className = {"h2 text-s-10 "}>قبض های تجمیع کننده</p>
+            {shownBills}
+            <Pagination pagesNumber = {pagesNumber}/>
 
-            </div>
-        </main>
+        </div>
     )
 }

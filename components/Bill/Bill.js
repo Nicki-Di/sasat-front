@@ -68,7 +68,7 @@ export default function Bill({info, lastBill}) {
                                         complain: true
                                     }))
                                     await router.push({
-                                        pathname: '/dashboard/messages/newMessage',
+                                        pathname: '/dashboard/messages/new',
                                     })
                                 }}
                             >

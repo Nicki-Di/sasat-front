@@ -1,6 +1,7 @@
 import DashboardLayout from "../../../components/Dashboard/DashboardLayout";
 import NewMessageContainer from "../../../components/Message/NewMessageContainer";
 import {useSelector} from "react-redux";
+import DashboardMain from "../../../components/Dashboard/DashboardMain";
 
 export default function newMessage() {
     const userState = useSelector(state => state.userReducer);
@@ -8,7 +9,9 @@ export default function newMessage() {
     return (
         <div>
             <DashboardLayout userState = {userState}/>
-            <NewMessageContainer/>
+            <DashboardMain>
+                <NewMessageContainer/>
+            </DashboardMain>
         </div>
     )
 }

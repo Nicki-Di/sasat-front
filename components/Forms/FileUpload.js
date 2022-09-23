@@ -1,4 +1,4 @@
-export default function FileUpload({name, id ,title, error, selectedFile, setSelectedFile}) {
+export default function FileUpload({name, id ,title, error, selectedFile, setSelectedFile, description}) {
 
     return (
         <div>
@@ -24,6 +24,7 @@ export default function FileUpload({name, id ,title, error, selectedFile, setSel
                     <p className = {"b1 overflow-hidden text-ellipsis whitespace-nowrap w-[28ch] " + (selectedFile ? "text-s-10" : "text-s-60")}>{selectedFile ? selectedFile.name : "فایلی انتخاب نشده"}</p>
                 </div>
             </div>
+            <p className={"b1 text-s-30 mt-3 "}>{description}</p>
 
         </div>
 

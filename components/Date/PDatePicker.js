@@ -22,12 +22,11 @@ export default function PDatePicker({minDate, dateState, setDateState}) {
                 calendarPosition = "bottom-right"
                 onChange = {(e) => {
                     dispatcher(setDateState({year: e.year, month: e.month.number, day: e.day}))
-
                 }}
                 value = {new DateObject({calendar: persian}).set({
-                    year: dateState.year,
-                    month: dateState.month,
-                    day: dateState.day,
+                    year: dateState?.year,
+                    month: dateState?.month,
+                    day: dateState?.day,
                     calendar: persian,
                     locale: persian_fa
                 })}
@@ -42,9 +41,9 @@ export default function PDatePicker({minDate, dateState, setDateState}) {
                     )
                 }}
                 minDate = {minDate && (new DateObject({
-                    year: minDate.year,
-                    month: minDate.month,
-                    day: minDate.day,
+                    year: minDate?.year,
+                    month: minDate?.month,
+                    day: minDate?.day,
                     calendar: persian,
                     locale: persian_fa
                 }))}

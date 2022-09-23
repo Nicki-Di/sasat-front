@@ -21,8 +21,7 @@ export default function NewMessageContainer() {
 
 
     return (
-        <main className = "w-[87%] mr-auto p-8 flex flex-col gap-16 items-center">
-            <div className = "flex flex-col w-full bg-s-100 shadow rounded-md gap-4">
+            <div className = "flex flex-col gap-4">
                 <p className = {"bg-s-80 rounded-t-md h2 text-s-10 text-center py-2 "}>ایجاد پیام جدید</p>
                 <div className = {"flex flex-row gap-8 p-16"}>
                     <img
@@ -103,7 +102,5 @@ export default function NewMessageContainer() {
                     </div>
                 </div>
             </div>
-
-        </main>
     )
 }

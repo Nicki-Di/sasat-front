@@ -1,4 +1,4 @@
-export default function MessageBadge({status}) {
+export default function StatusBadge({status}) {
     let classNames = "bg-attention-1 text-attention"
 
     switch (status) {

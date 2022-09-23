@@ -5,6 +5,7 @@ import error from "../../utils/texts/error";
 import success from "../../utils/texts/success";
 import * as authActions from "../../store/slices/auth";
 import {useDispatch} from "react-redux";
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
 
 export default function Forget() {
     const dispatcher = useDispatch()
@@ -64,7 +65,12 @@ export default function Forget() {
                    onClick = {() => dispatcher(authActions.loginSet())}
                 >ورود با نام کاربری و رمز ورود</p>
                 <Modal isOpen = {modal} setIsOpen = {setModal} title = {success[1].title}
-                       body = {success[1].body} type = {1} extra = {"w-1/3 "} cta = {true}/>
+                       body = {success[1].body} type = {1} extra = {"w-1/3 "} CTA = {
+                    <div className = {"flex flex row items-center justify-center cursor-pointer gap-2 "}
+                         onClick = {() => setModal(false)}>
+                    <p className = {"b1"}>متوجه شدم</p>
+                    <ArrowBackRoundedIcon/>
+                </div>}/>
             </div>
         </div>
     )

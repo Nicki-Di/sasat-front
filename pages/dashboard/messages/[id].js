@@ -2,6 +2,7 @@ import {useRouter} from "next/router";
 import DashboardLayout from "../../../components/Dashboard/DashboardLayout";
 import SingleMessage from "../../../components/Message/SingleMessage";
 import {useSelector} from "react-redux";
+import DashboardMain from "../../../components/Dashboard/DashboardMain";
 
 export default function message() {
     const router = useRouter()
@@ -12,7 +13,9 @@ export default function message() {
     return (
         <div>
             <DashboardLayout userState = {userState}/>
-            <SingleMessage type = {2} message = {message}/>
+            <DashboardMain>
+                <SingleMessage type = {2} message = {message}/>
+            </DashboardMain>
         </div>
     )
 }

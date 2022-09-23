@@ -58,7 +58,7 @@ export default function Login() {
                    onClick = {() => dispatcher(authActions.forgetSet())}>اطلاعات ورود را فراموش کردم</p>
 
                 <Modal isOpen = {modal} setIsOpen = {setModal} title = {success[0].title}
-                       body = {success[0].body} type = {1} extra = {"w-1/3 "} cta = {false}/>
+                       body = {success[0].body} type = {1} extra = {"w-1/3 "}/>
             </div>
 
         </div>

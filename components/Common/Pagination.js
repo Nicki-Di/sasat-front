@@ -12,7 +12,7 @@ export default function Pagination({pagesNumber}) {
                     <nav className = "z-0 inline-flex -space-x-px"
                          aria-label = "Pagination">
                         <div
-                            className = {"items-center px-2 py-2 " + (currentPage.current === 1 ? "cursor-not-allowed text-s-80" : " cursor-pointer  text-s-10")}
+                            className = {"items-center px-2 py-2 " + (currentPage.current > 1 ?  " cursor-pointer text-s-10" : "cursor-not-allowed text-s-80")}
                             onClick = {async () => {
                                 if (currentPage.current > 1) {
                                     currentPage.current--
@@ -33,7 +33,7 @@ export default function Pagination({pagesNumber}) {
                         </div>
 
                         <div
-                            className = {"items-center px-2 py-2 " + (currentPage.current === pagesNumber ? "cursor-not-allowed text-s-80" : " cursor-pointer  text-s-10")}
+                            className = {"items-center px-2 py-2 " + (currentPage.current < pagesNumber ? " cursor-pointer text-s-10" : "cursor-not-allowed text-s-80")}
                             onClick = {async () => {
                                 if (currentPage.current < pagesNumber) {
                                     currentPage.current++

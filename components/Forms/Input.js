@@ -2,7 +2,7 @@ import ModeRoundedIcon from '@mui/icons-material/ModeRounded';
 import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
 import {useEffect} from "react";
 
-export default function Input({type, name, title, placeholder, state, setState, error, complain}) {
+export default function Input({type, name, title, placeholder, state, setState, error, complain, unit}) {
     useEffect(() => {
         if (complain !== undefined)
             !complain ? setState("") : setState("اعتراض به قبض")
@@ -21,14 +21,18 @@ export default function Input({type, name, title, placeholder, state, setState, 
                     <ModeRoundedIcon
                         className = {"absolute left-2 top-[38px] " + (state ? "text-s-60 animate-fadeIn" : "text-white")}/>))
         }
-        {type === "textarea" ?
+        {
+            !error && !state && (<p className = {"absolute left-4 top-[41px] b1 text-s-60"}>{unit}</p>)
+
+        }
+        { type === "textarea" ?
             <textarea
                 name = {name}
                 value = {state}
                 placeholder = {placeholder}
                 className = {"w-full rounded b1 p-2 border-2 focus:ring-0 focus:outline-0 " + (error ? "border-alert" : "border-s-60 focus:border-s-10 hover:border-s-10 transition-all duration-200 ")}
                 onChange = {e => {
-                    setState(e.target.value);
+                    setState?.(e.target.value);
                 }}
             />
 
@@ -42,7 +46,7 @@ export default function Input({type, name, title, placeholder, state, setState, 
                 placeholder = {placeholder}
                 className = {"w-full rounded b1 p-2 border-2 focus:ring-0 focus:outline-0 " + (error ? "border-alert" : "border-s-60 focus:border-s-10 hover:border-s-10 transition-all duration-200 ")}
                 onChange = {e => {
-                    setState(e.target.value);
+                    setState?.(e.target.value);
                 }}
             />
         }

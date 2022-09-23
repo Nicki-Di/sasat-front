@@ -1,8 +1,9 @@
 import {combineReducers, configureStore} from "@reduxjs/toolkit"
 import authReducer from "./slices/auth";
-import userReducer from "./slices/user";
+import userReducer from "./slices/currentUser";
 import datePickerReducer from "./slices/datePicker";
 import messagesReducer from "./slices/messages";
+import tjUsersReducer from "./slices/tjUsers";
 
 import storage from 'redux-persist/lib/storage'
 import {persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER} from 'redux-persist'
@@ -12,7 +13,8 @@ const reducers = combineReducers({
     authReducer,
     userReducer,
     datePickerReducer,
-    messagesReducer
+    messagesReducer,
+    tjUsersReducer
 });
 
 const persistConfig = {

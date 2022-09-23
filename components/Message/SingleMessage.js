@@ -13,8 +13,7 @@ export default function SingleMessage({type, message}) {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <main className = "w-[87%] mr-auto p-8 flex flex-col gap-16 items-center">
-            <div className = "flex flex-col w-full p-8 bg-s-100 shadow rounded-md">
+            <div className = "flex flex-col p-8 ">
                 {/* row 1 */}
                 <div className = {"flex flex-row h2 items-center gap-8 border-b border-s-80 pb-8 "}>
                     <EmailIcon fontSize = "large"/>
@@ -38,7 +37,7 @@ export default function SingleMessage({type, message}) {
                             <div
                                 className = {"flex flex-row b1 rounded py-2 gap-4 items-center justify-center cursor-pointer"}
                                 onClick = {async () => await router.push({
-                                    pathname: '/dashboard/messages/newMessage',
+                                    pathname: '/dashboard/messages/new',
                                 })}
                             >
                                 <p>ویرایش پیام</p>
@@ -92,7 +91,6 @@ export default function SingleMessage({type, message}) {
 
                 </div>
             </div>
-        </main>
 
     )
 }

@@ -1,5 +1,5 @@
 import DashboardLayout from "../../components/Dashboard/DashboardLayout";
-import DashboardMain from "../../components/Dashboard/DashboardMain";
+import MainPage from "../../components/Common/MainPage";
 import {useSelector} from "react-redux";
 
 export default function dashboard() {
@@ -7,7 +7,7 @@ export default function dashboard() {
     return (
         <div>
             <DashboardLayout userState = {userState}/>
-            <DashboardMain userState = {userState}/>
+            <MainPage userState = {userState}/>
         </div>
     )
 }

@@ -1,9 +1,8 @@
 import {Dialog, Transition} from '@headlessui/react'
 import {Fragment, useEffect, useState} from 'react'
 import CheckBoxRoundedIcon from '@mui/icons-material/CheckBoxRounded';
-import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
-
-export default function Modal({isOpen, setIsOpen, title, body, type, extra, cta}) {
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+export default function Modal({isOpen, setIsOpen, title, body, type, extra, CTA}) {
     const [color, setColor] = useState("");
     const [icon, setIcon] = useState("");
 
@@ -12,6 +11,10 @@ export default function Modal({isOpen, setIsOpen, title, body, type, extra, cta}
             case 1:
                 setColor("bg-success-1 border-success");
                 setIcon(<CheckBoxRoundedIcon fontSize = "large" className = {"text-success"}/>)
+                break
+            case 2:
+                setColor("bg-primary-2 border-primary");
+                setIcon(<CloseRoundedIcon fontSize = "large" className = {"bg-primary text-white rounded"}/>)
                 break
         }
     }, [type])
@@ -56,16 +59,8 @@ export default function Modal({isOpen, setIsOpen, title, body, type, extra, cta}
                                     </p>
                                 </div>
                                 {
-                                    cta && (
-                                        <div className = {"flex flex row items-center justify-center cursor-pointer gap-2 "}
-                                             onClick = {() => setIsOpen(false)}
-                                        >
-                                            <p className = {"b1"}>متوجه شدم</p>
-                                            <ArrowBackRoundedIcon/>
-                                        </div>
-                                    )
+                                    CTA
                                 }
-
 
                             </Dialog.Panel>
                         </Transition.Child>

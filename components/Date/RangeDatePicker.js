@@ -2,7 +2,7 @@ import PDatePicker from "./PDatePicker";
 import {useSelector} from "react-redux";
 import * as datePickerActions from "../../store/slices/datePicker";
 
-export default function DatePickerContainer() {
+export default function RangeDatePicker() {
     const date = useSelector(state => state.datePickerReducer)
 
     return (

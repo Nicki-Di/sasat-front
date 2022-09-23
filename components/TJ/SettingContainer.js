@@ -15,8 +15,7 @@ export default function SettingContainer({userState}) {
 
 
     return (
-        <main className = "w-[87%] mr-auto p-8 flex flex-col gap-16 items-center">
-            <div className = "flex flex-col w-full p-8 bg-s-100 shadow rounded-md gap-8">
+            <div className = "flex flex-col gap-8 p-8 ">
                 <SettingHeader userState = {userState} edit = {edit} setEdit = {setEdit}/>
                 <SettingChangeable userState = {[userState.username, userState.email, userState.password]}
                                    edit = {edit} lastRow = {userState.role !== "تجمیع کننده"}/>
@@ -43,6 +42,5 @@ export default function SettingContainer({userState}) {
                 }
 
             </div>
-        </main>
     )
 }

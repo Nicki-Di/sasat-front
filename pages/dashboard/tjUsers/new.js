@@ -1,21 +1,17 @@
-import {useRouter} from "next/router";
 import DashboardLayout from "../../../components/Dashboard/DashboardLayout";
-import SingleMessage from "../../../components/Message/SingleMessage";
 import {useSelector} from "react-redux";
 import DashboardMain from "../../../components/Dashboard/DashboardMain";
+import NewTJUserContainer from "../../../components/TJ_Users/NewTJUserContainer";
 
-export default function preview() {
+export default function newTJUser() {
     const userState = useSelector(state => state.userReducer);
-    const preview = useSelector(state => state.messagesReducer)[0]
 
     return (
         <div>
             <DashboardLayout userState = {userState}/>
             <DashboardMain>
-                <SingleMessage type = {1}
-                               message = {preview}/>
+                <NewTJUserContainer/>
             </DashboardMain>
-
         </div>
     )
 }

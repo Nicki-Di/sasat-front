@@ -12,7 +12,7 @@ export default function Row({keys, values, lastRow, downloadButton}) {
     }
 
     return (
-        <div className = {!lastRow && ("border-b border-s-80 pb-8")}>
+        <div className = {!lastRow ? "border-b border-s-80 pb-8" : ""}>
             <div
                 className = {"grid grid-rows-2 gap-x-8 gap-y-4 b1 " + cols}>
                 {

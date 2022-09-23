@@ -13,7 +13,13 @@ export const options = {
     button: "تجمیع‌کننده جدید"
 }
 
-export const modalTexts = {
+export const noUserModal = {
     title: "اطلاعاتی موجود نیست!",
     body: "شما هنوز کاربری تعریف نکردید, میتوانید از طریق فرم، کاربر جدیدی به سیستم اضافه کنید.",
+}
+
+export const addSuccessModal = {
+    title: "تعریف کاربر جدید موفقیت آمیز بود!",
+    body: "اطلاعات کاربر جدید در سیستم با موفقیت ثبت شد\n" +
+        "اطلاعات ورود برای ایمیل ثبت شده ارسال شده است"
 }

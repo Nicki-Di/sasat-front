@@ -5,6 +5,7 @@ import * as messagesActions from "../../../store/slices/messages";
 import {options} from '/utils/texts/messagesTable'
 import Table from "../../../components/Table/Table";
 import DashboardMain from "../../../components/Dashboard/DashboardMain";
+import AddButton from "../../../components/Buttons/AddButton";
 const messagesArray = [
     {
         title: 'اعتراض به قبض',
@@ -36,6 +37,10 @@ export default function messages() {
         <div>
             <DashboardLayout userState = {userState}/>
             <DashboardMain>
+                <div className = {"flex flex-row justify-between items-center p-8 "}>
+                    <p className = {"h2 text-s-10"}>{options.title}</p>
+                    <AddButton slug={`${options.slug}/new`} text={options.button}/>
+                </div>
                 <Table options={options} data={messagesArray}/>
             </DashboardMain>
         </div>

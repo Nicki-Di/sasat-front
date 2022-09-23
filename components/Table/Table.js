@@ -43,10 +43,6 @@ export default function Table({options, data, itemsPerPage = 10 }) {
 
     return (
             <div className = "flex flex-col gap-8 p-8 ">
-                <div className = {"flex flex-row justify-between items-center"}>
-                    <p className = {"h2 text-s-10"}>{options.title}</p>
-                    <AddButton slug={`${options.slug}/new`} text={options.button}/>
-                </div>
                 <div className = "-my-2 overflow-x-auto -mx-8">
                     <div className = "py-2 align-middle inline-block min-w-full px-8">
                         <div className = "overflow-hidden">

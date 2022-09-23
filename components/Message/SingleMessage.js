@@ -7,7 +7,7 @@ import {useDispatch} from "react-redux";
 import Receivers from "./Receivers";
 import {useState} from "react";
 
-export default function SingleMessage({type, message}) {
+export default function SingleMessage({isPreview, message}) {
     const router = useRouter()
     const dispatcher = useDispatch();
     const [isOpen, setIsOpen] = useState(false);
@@ -18,14 +18,14 @@ export default function SingleMessage({type, message}) {
                 <div className = {"flex flex-row h2 items-center gap-8 border-b border-s-80 pb-8 "}>
                     <EmailIcon fontSize = "large"/>
                     {
-                        type === 1 ? <p className = {"grow "}>پیش نمایش پیام جدید</p> :
+                        isPreview ? <p className = {"grow "}>پیش نمایش پیام جدید</p> :
                             <p className = {"grow "}>پیام</p>
 
                     }
                     {
-                        type === 1 ? (<div className = {"flex flex-row gap-8"}>
+                        isPreview ? (<div className = {"flex flex-row gap-8"}>
                             <div
-                                className = {"flex flex-row bg-primary b1 rounded py-2 px-3 gap-4 items-center justify-center cursor-pointer"}
+                                className = {"flex flex-row bg-primary b1 rounded py-2 px-3 gap-2 items-center justify-center cursor-pointer"}
                                 onClick = {() => {
                                     router.push("/dashboard/messages").then(() => dispatcher(messagesActions.previewMessageSet({}))
                                     )
@@ -35,7 +35,7 @@ export default function SingleMessage({type, message}) {
                                 <DoneRoundedIcon/>
                             </div>
                             <div
-                                className = {"flex flex-row b1 rounded py-2 gap-4 items-center justify-center cursor-pointer"}
+                                className = {"flex flex-row b1 rounded py-2 gap-2 items-center justify-center cursor-pointer"}
                                 onClick = {async () => await router.push({
                                     pathname: '/dashboard/messages/new',
                                 })}

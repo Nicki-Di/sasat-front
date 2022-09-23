@@ -1,4 +1,4 @@
-export const changeable = [
+export const userInfo = [
     "نام کاربری",
     "ایمیل کاربری",
     "رمز ورود"
@@ -22,4 +22,9 @@ export const billContract = [
 export const billDuty = [
     "فیدر های تحت نظر",
     "سهمیه کاهش بار لازم‌الاجرا"
+]
+
+export const primaryInfo = [
+    "نام کاربری",
+    "ایمیل کاربری",
 ]

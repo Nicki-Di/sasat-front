@@ -10,7 +10,7 @@ export default function bills() {
         <div>
             <DashboardLayout userState = {userState}/>
             <DashboardMain>
-                <BillsContainer/>
+                <BillsContainer userState = {userState}/>
             </DashboardMain>
         </div>
     )

@@ -1,4 +1,4 @@
-export default function BillBadge({status}) {
+export default function BillResultBadge({status}) {
     let classNames = "bg-attention-1 text-attention"
 
     switch (status) {
@@ -11,7 +11,7 @@ export default function BillBadge({status}) {
     }
 
     return (
-        <p className = {"text-s-10 b1 p-2 rounded-md text-center " + classNames}>
+        <p className = {"b1 p-2 rounded-md text-center " + classNames}>
             {status}
         </p>
     )

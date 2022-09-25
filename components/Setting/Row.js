@@ -24,11 +24,10 @@ export default function Row({keys, values, lastRow, downloadButton}) {
                 }
                 {
                     values.map((item, index) =>
-                        <div key = {item} className = {" flex flex-row gap-8 items-center [word-spacing:0.16rem] text-s-10"}>
+                        <div key = {index} className = {" flex flex-row gap-8 items-center [word-spacing:0.16rem] text-s-10"}>
                             <p className = {" overflow-hidden text-ellipsis whitespace-nowrap w-[22ch]"}>{item}</p>
                             {downloadButton && index === 1 &&
                                 <p className = {"b1 text-s-10 border-b border-primary cursor-pointer"}>دانلود</p>}
-
                         </div>
                     )
                 }

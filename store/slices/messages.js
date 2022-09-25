@@ -6,9 +6,11 @@ const slice = createSlice({
     initialState: [{}],
     reducers: {
         messagesInitialized: (state, action) => {
-            action.payload.forEach(message => state.push(message))
+            for (let i = 0; i < action.payload.length; i++) {
+                state[i + 1] = action.payload[i]
+            }
         },
-        previewMessageSet: (state, action) =>{
+        previewMessageSet: (state, action) => {
             state[0] = action.payload
         }
     }

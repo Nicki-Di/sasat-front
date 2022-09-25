@@ -1,4 +1,9 @@
-export const options = {
+export const TJBill = [
+    "قبض  تایید شده",
+    "قبض صادر شده و فعال است"
+]
+
+export const TZBillsTable = {
     head : [
         "ردیف",
         "نام تجمیع کننده/توزیع کننده",

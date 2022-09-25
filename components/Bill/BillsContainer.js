@@ -1,84 +1,92 @@
-import Bill from "./Bill";
-import Pagination from "../Common/Pagination";
-import {useRouter} from "next/router";
 import {useEffect, useState} from "react";
-import {options} from "../../utils/texts/billsTable";
-import Table from "../Table/Table";
+import BillsTable from "./BillsTable";
+import BillsStack from "./BillsStack";
+import * as billsActions from "../../store/slices/bills";
+import {useDispatch} from "react-redux";
 
-const billsInfo = [
+// tz
+const billsTableRaw = [
+    {
+        date: {year: "1401", month: "4", day: "17"},
+        userName: "منطقه1-شهر تهران",
+        period: "دوره تیر",
+        billStatus: "قبض در انتظار صدور",
+        amount: 700000,
+        billResult: "پاداش",
+    },
+    {
+        date: {year: "1401", month: "5", day: "17"},
+        userName: "منطقه2-شهر تهران",
+        period: "دوره مرداد",
+        billStatus: "قبض  تایید شده",
+        amount: 500000,
+        billResult: "جریمه",
+    },
+]
+
+// tj
+const billsStack = [
     {
         period: "دوره تیر",
         date: {year: "1401", month: "5", day: "17"},
-        amount: "700000",
-        status: "پاداش",
+        amount: 700000,
+        billResult: "پاداش",
+        billStatus: "قبض صادر شده و فعال است",
         daysLeft: 2
     },
     {
         period: "دوره تیر",
         date: {year: "1401", month: "5", day: "17"},
-        amount: "700000",
-        status: "جریمه",
+        amount: 700000,
+        billResult: "جریمه",
+        billStatus: "قبض  تایید شده",
         daysLeft: 0
     },
     {
         period: "دوره تیر",
         date: {year: "1401", month: "5", day: "17"},
-        amount: "700000",
-        status: "پاداش",
+        amount: 700000,
+        billResult: "پاداش",
+        billStatus: "قبض  تایید شده",
         daysLeft: 0
     },
     {
         period: "دوره تیر",
         date: {year: "1401", month: "5", day: "17"},
-        amount: "700000",
-        status: "جریمه",
+        amount: 700000,
+        billResult: "جریمه",
+        billStatus: "قبض  تایید شده",
         daysLeft: 0
     },
 ]
 
-const messagesArray = [
-    {
-        title: 'اعتراض به قبض',
-        date: '۱۴۰۱/۰۵/۰۵',
-        sender: 'توزیع کننده منطقه تهران',
-        receivers: ["تجمیع کننده منطقه 1 "],
-        status: "دیده شده",
-        text: "متن ۱"
-    },
-    {
-        title: 'اعتراض به قبض',
-        date: '۱۴۰۱/۰۵/۰۵',
-        sender: 'توزیع کننده منطقه تهران',
-        receivers: ["تجمیع کننده منطقه 1 "],
-        status: "جدید",
-        text: "متن ۲"
-    },
-]
 
-export default function BillsContainer(userState) {
+const billsTable = (array) => {
+    const billsTableArray = []
+    for (let item of array) {
+        billsTableArray.push(Object.fromEntries(Object.entries(item).slice(1)))
+    }
+    return billsTableArray
+}
+
+export default function BillsContainer({userState}) {
     const [TJ, setTJ] = useState(false)
+    const dispatcher = useDispatch()
+    let billsTableArray = billsTable(billsTableRaw)
 
     useEffect(() => {
-        userState.role === "تجمیع کننده" ? setTJ(true) : setTJ(false)
+        if (userState.role === "تجمیع کننده") {
+            setTJ(true)
+            dispatcher(billsActions.billsInitialized(billsStack))
+        } else {
+            setTJ(false)
+            dispatcher(billsActions.billsInitialized(billsTableRaw))
+        }
+
     }, [userState.role]);
 
-    const router = useRouter();
-    const billsPerPage = 3
-    const pagesNumber = Math.ceil(billsInfo.length / billsPerPage);
-    let currentPage = (parseInt(router.asPath.split("?page=")[1]) || 1)
-    let shownBills = billsInfo.slice(((currentPage - 1) * billsPerPage), (currentPage * billsPerPage)).map((bill, index) => (
-        <Bill key = {index} info = {bill} lastBill = {2}/>))
 
     return (
-        <>
-            {
-                TJ ? <div className = {"flex flex-col items-center justify-center gap-8 p-8 "}>
-                    <p className = {"h2 text-s-10 "}>قبض های تجمیع کننده</p>
-                    {shownBills}
-                    <Pagination pagesNumber = {pagesNumber}/>
-                </div> : <Table options = {options} data = {messagesArray}/>
-            }
-        </>
-
+        TJ ? <BillsStack bills = {billsStack}/> : <BillsTable bills = {billsTableArray}/>
     )
 }

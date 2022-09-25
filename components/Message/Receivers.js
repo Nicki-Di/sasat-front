@@ -3,6 +3,7 @@ import {Fragment} from 'react'
 import DoneRoundedIcon from '@mui/icons-material/DoneRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ContactsRoundedIcon from "@mui/icons-material/ContactsRounded";
+import IconButton from "../Buttons/IconButton";
 
 const contacts = ["توزیع کننده منطقه تهران", "توانیر"]
 
@@ -107,20 +108,13 @@ export default function Receivers({isOpen, setIsOpen, receivers, setReceivers}) 
                                     {
                                         typeof (setReceivers) === 'function' ? <div
                                                 className = {"flex flex-row items-center justify-between w-[20vw]"}>
-                                                <div
-                                                    className = {"basis-1/2 flex flex-row bg-primary b1 rounded py-2 gap-4 items-center justify-center cursor-pointer"}
-                                                    onClick = {() => setIsOpen(false)}
-                                                >
-                                                    <p>تایید</p>
-                                                    <DoneRoundedIcon/>
-                                                </div>
-                                                <div
-                                                    className = {"basis-1/2 flex flex-row b1 rounded py-2 gap-4 items-center justify-center cursor-pointer"}
-                                                    onClick = {() => setIsOpen(false)}
-                                                >
-                                                    <p>انصراف</p>
-                                                    <CloseRoundedIcon/>
-                                                </div>
+
+                                                <IconButton className = {"bg-primary basis-1/2 "} text = {"تایید"}
+                                                            icon = {<DoneRoundedIcon/>} onClick = {() => setIsOpen(false)}/>
+
+                                                <IconButton className = {"basis-1/2 "} text = {"انصراف"}
+                                                            icon = {<CloseRoundedIcon/>} onClick = {() => setIsOpen(false)}/>
+
                                             </div>
                                             :
                                             <p

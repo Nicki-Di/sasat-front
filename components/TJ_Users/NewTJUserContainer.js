@@ -21,18 +21,18 @@ const data = [
 
 
 export default function NewTJUserContainer() {
-    const [name, setName] = useState();
+    const [name, setName] = useState("");
     const [formula, setFormula] = useState(data[0]);
-    const [selectedFile, setSelectedFile] = useState();
-    const [email, setEmail] = useState();
-    const [p1, setP1] = useState();
-    const [contractDate, setContractDate] = useState();
-    const [penalty, setPenalty] = useState();
-    const [p2, setP2] = useState();
-    const [feeders, setFeeders] = useState();
-    const [reward, setReward] = useState();
-    const [contractNumber, setContractNumber] = useState();
-    const [load, setLoad] = useState();
+    const [selectedFile, setSelectedFile] = useState("");
+    const [email, setEmail] = useState("");
+    const [p1, setP1] = useState("");
+    const [contractDate, setContractDate] = useState("");
+    const [penalty, setPenalty] = useState("");
+    const [p2, setP2] = useState("");
+    const [feeders, setFeeders] = useState("");
+    const [reward, setReward] = useState("");
+    const [contractNumber, setContractNumber] = useState("");
+    const [load, setLoad] = useState("");
 
     const router = useRouter();
     const dispatcher = useDispatch();
@@ -88,21 +88,21 @@ export default function NewTJUserContainer() {
                             setSelectedFile = {setSelectedFile}
                             description = {"فرمت PDF قابل قبول است."}
                 />
-                <Input type = {"text"} title = {"ایمیل کاربر"} name = {"TJname"} state = {email} setState = {setEmail}/>
-                <Input type = {"text"} title = {"پارامتر 1 فرمول"} name = {"TJname"} state = {p1} setState = {setP1}/>
+                <Input type = {"text"} title = {"ایمیل کاربر"} name = {"email"} state = {email} setState = {setEmail}/>
+                <Input type = {"text"} title = {"پارامتر 1 فرمول"} name = {"p1"} state = {p1} setState = {setP1}/>
                 <SimpleDatePicker title = {"تاریخ شروع قرارداد"}/>
-                <Input type = {"text"} title = {"تعرفه جریمه"} name = {"TJname"} unit = {"ریال"} state = {penalty}
+                <Input type = {"text"} title = {"تعرفه جریمه"} name = {"penalty"} unit = {"ریال"} state = {penalty}
                        setState = {setPenalty}/>
-                <Input type = {"text"} title = {"پارامتر 2 فرمول"} name = {"TJname"} state = {p2} setState = {setP2}/>
-                <Input type = {"text"} title = {"فیدر های تحت نظر"} name = {"TJname"} state = {feeders}
+                <Input type = {"text"} title = {"پارامتر 2 فرمول"} name = {"p2"} state = {p2} setState = {setP2}/>
+                <Input type = {"text"} title = {"فیدر های تحت نظر"} name = {"feeders"} state = {feeders}
                        setState = {setFeeders}/>
-                <Input type = {"text"} title = {"تعرفه پاداش"} name = {"TJname"} unit = {"ریال"} state = {reward}
+                <Input type = {"text"} title = {"تعرفه پاداش"} name = {"reward"} unit = {"ریال"} state = {reward}
                        setState = {setReward}/>
-                <Input type = {"text"} title = {"شماره قرارداد"} name = {"TJname"}
+                <Input type = {"text"} title = {"شماره قرارداد"} name = {"contractNumber"}
                        placeholder = {"شماره قرارداد 8 رقمی را وارد کنید."}
                        state = {contractNumber} setState = {setContractNumber}
                 />
-                <Input type = {"text"} title = {"کاهش بار لازم الاجرا"} name = {"TJname"} unit = {"MW"} state = {load}
+                <Input type = {"text"} title = {"کاهش بار لازم الاجرا"} name = {"load"} unit = {"MW"} state = {load}
                        setState = {setLoad}/>
 
             </div>

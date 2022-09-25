@@ -27,8 +27,8 @@ const messagesArray = [
 
 export default function messages() {
     const dispatcher = useDispatch()
-
     const userState = useSelector(state => state.userReducer);
+
     useEffect(() => {
         dispatcher(messagesActions.messagesInitialized(messagesArray))
     }, [])

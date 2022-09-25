@@ -4,6 +4,7 @@ import userReducer from "./slices/currentUser";
 import datePickerReducer from "./slices/datePicker";
 import messagesReducer from "./slices/messages";
 import tjUsersReducer from "./slices/tjUsers";
+import billsReducer from "./slices/bills";
 
 import storage from 'redux-persist/lib/storage'
 import {persistReducer, FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER} from 'redux-persist'
@@ -14,7 +15,8 @@ const reducers = combineReducers({
     userReducer,
     datePickerReducer,
     messagesReducer,
-    tjUsersReducer
+    tjUsersReducer,
+    billsReducer
 });
 
 const persistConfig = {

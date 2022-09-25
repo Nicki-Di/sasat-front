@@ -12,6 +12,7 @@ import Row from "../Setting/Row";
 import Modal from "../Common/Modal";
 import {addSuccessModal} from "../../utils/texts/usersTable";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
+import IconButton from "../Buttons/IconButton";
 
 const buttons = [
     {text: "ویرایش", icon: <CreateIcon/>},
@@ -25,6 +26,15 @@ export default function SingleUser({isPreview, user}) {
     const dispatcher = useDispatch();
     const [isOpen, setIsOpen] = useState(false)
 
+    const doneAddUser = () => {
+        setIsOpen(true)
+        dispatcher(tjUsersActions.previewTJUserSet({}))
+    }
+
+    const edit = async () => await router.push({
+        pathname: '/dashboard/tjUsers/new',
+    })
+
     return (
         <div className = "flex flex-col p-8 gap-8 ">
             {/* row 1 */}
@@ -37,37 +47,32 @@ export default function SingleUser({isPreview, user}) {
                 {
                     isPreview ?
                         <div className = {"flex flex-row gap-8"}>
-                            <div>
-                                <div className = {"bg-primary py-2 px-4 flex flex-row gap-2 text-s-10 rounded cursor-pointer"}
-                                     onClick = {() => {
-                                         setIsOpen(true)
-                                          dispatcher(tjUsersActions.previewTJUserSet({}))
-                                     }}
-                                >
-                                    <p className = {"b1 "}>تایید اطلاعات و اضافه کردن کاربر</p>
-                                    <DoneRoundedIcon/>
-                                </div>
-                            </div>
-                            <div
-                                className = {"flex flex-row b1 rounded py-2 gap-2 items-center justify-center cursor-pointer"}
-                                onClick = {async () => await router.push({
-                                    pathname: '/dashboard/tjUsers/new',
-                                })}
-                            >
-                                <p>ویرایش اطلاعات</p>
-                                <CreateIcon/>
-                            </div>
+                                <IconButton
+                                    className = {"bg-primary"}
+                                    text = {"تایید اطلاعات و اضافه کردن کاربر"}
+                                    icon = {<DoneRoundedIcon/>}
+                                    onClick = {doneAddUser}
+                                />
+                            <IconButton
+                                    text = {"ویرایش اطلاعات"}
+                                    icon = {<CreateIcon/>}
+                                    onClick = {edit}
+                                />
                         </div>
                         :
                         <div className = {"flex flex-row gap-8"}>
-                            <div className = {"bg-primary py-2 px-4 flex flex-row gap-2 text-s-10 rounded"}>
-                                <p className = {"b1"}>ارسال پیام</p>
-                                <SendRoundedIcon className = {"rotate-180"}/>
-                            </div>
+
+                            <IconButton
+                                className = {"bg-primary"}
+                                text = {"ارسال پیام"}
+                                icon = {<SendRoundedIcon className = {"rotate-180"}/>}
+                            />
+
                             {
                                 buttons.map(button =>
                                     <div
-                                        className = {"py-2 px-4 flex flex-row gap-2 text-s-10 rounded border-2 border-s-10"}>
+                                        key={button.text}
+                                        className = {"py-2 px-4 flex flex-row gap-2 text-s-10 rounded border-2 border-s-10 cursor-pointer"}>
                                         <p className = {"b1"}>{button.text}</p>
                                         {button.icon}
                                     </div>
@@ -87,7 +92,7 @@ export default function SingleUser({isPreview, user}) {
             <Row keys = {billTariff} values = {[user?.penalty, user?.reward]}/>
 
             {/* row 5 */}
-            <Row keys = {billContract} values = {[user?.contractNumber, user?.fileName]}/>
+            <Row keys = {billContract} values = {[user?.contractNumber, user?.fileName]} downloadButton/>
 
             {/* row 6 */}
             <Row keys = {billDuty} values = {[user?.feeders, user?.load]} lastRow/>

@@ -100,8 +100,8 @@ export default function MainPage({userState}) {
                         <LineChartContainer/>
                     </div>
                     {/*    bills*/}
-                    <div className = {"bg-s-100 shadow rounded-md"}>
-                        <BillsContainer userState = {userState}/>
+                    <div className = {"bg-s-100 shadow-lg rounded-md"}>
+                        <BillsContainer userState = {userState} reportsView/>
                     </div>
                 </div>
             }

@@ -8,7 +8,7 @@ import {useState} from "react";
 import BillsReport from "./BillsReport";
 
 
-export default function BillsTable({bills, reportsView = false}) {
+export default function BillsTable({bills, reportsView = false, role}) {
     const [showReports, setShowReports] = useState(reportsView)
     return (
         <div className = {"flex flex-col gap-8 p-8 "}>
@@ -25,7 +25,7 @@ export default function BillsTable({bills, reportsView = false}) {
                 <Export excel/>
             </div>
             {
-                showReports ? <BillsReport/> : <Table options = {TZBillsTable} data = {bills} role = {"توزیع کننده"}/>
+                showReports ? <BillsReport/> : <Table options = {TZBillsTable} data = {bills} role = {role}/>
             }
         </div>
     )

@@ -15,7 +15,7 @@ export default function bill() {
             <DashboardLayout userState = {userState}/>
             <main className = {"w-[87%] mr-auto p-8 flex flex-col gap-16 items-center "}>
                 {
-                    billInfo?.billStatus === "قبض در انتظار صدور" ? <TZActiveBill billInfo={billInfo}/> : <Bill info = {billInfo} lastBill = {false}/>
+                    (billInfo?.billStatus ===  "قبض در انتظار صدور" && userState.role === "تجمیع کننده") ? <TZActiveBill billInfo={billInfo}/> : <Bill info = {billInfo} lastBill = {false}/>
                 }
 
             </main>

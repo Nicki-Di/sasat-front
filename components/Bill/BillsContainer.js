@@ -69,7 +69,7 @@ const billsTable = (array) => {
     return billsTableArray
 }
 
-export default function BillsContainer({userState}) {
+export default function BillsContainer({userState, reportsView = false}) {
     const dispatcher = useDispatch()
     let billsTableArray = billsTable(billsTableRaw)
 
@@ -85,8 +85,8 @@ export default function BillsContainer({userState}) {
     return (
         <>
             {userState.role === "تجمیع کننده" && <BillsStack bills = {billsStack}/>}
-            {userState.role === "توزیع کننده" && <BillsTable bills = {billsTableArray}/>}
-            {userState.role === "توانیر" && <BillsTable bills = {billsTableArray} reportsView/>}
+            {userState.role === "توزیع کننده" && <BillsTable bills = {billsTableArray} role={"توزیع کننده"}/>}
+            {userState.role === "توانیر" && <BillsTable bills = {billsTableArray} reportsView = {reportsView} role={"توانیر"}/>}
         </>
     )
 }

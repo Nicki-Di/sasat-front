@@ -4,25 +4,6 @@ import BillsStack from "./BillsStack";
 import * as billsActions from "../../store/slices/bills";
 import {useDispatch} from "react-redux";
 
-// tz
-const billsTableRaw = [
-    {
-        date: {year: "1401", month: "4", day: "17"},
-        userName: "منطقه1-شهر تهران",
-        period: "دوره تیر",
-        billStatus: "قبض در انتظار صدور",
-        amount: 700000,
-        billResult: "پاداش",
-    },
-    {
-        date: {year: "1401", month: "5", day: "17"},
-        userName: "منطقه2-شهر تهران",
-        period: "دوره مرداد",
-        billStatus: "قبض  تایید شده",
-        amount: 500000,
-        billResult: "جریمه",
-    },
-]
 
 // tj
 const billsStack = [
@@ -59,6 +40,36 @@ const billsStack = [
         daysLeft: 0
     },
 ]
+
+// tz - tv
+const billsTableRaw = [
+    {
+        date: {year: "1401", month: "4", day: "17"},
+        userName: "منطقه1-شهر تهران",
+        period: "دوره تیر",
+        billStatus: "قبض در انتظار صدور",
+        amount: 700000,
+        billResult: "پاداش",
+    },
+    {
+        date: {year: "1401", month: "5", day: "17"},
+        userName: "منطقه2-استان زنجان",
+        period: "دوره مرداد",
+        billStatus: "قبض  تایید شده",
+        amount: 500000,
+        billResult: "جریمه",
+    },
+
+    {
+        date: {year: "1401", month: "5", day: "17"},
+        userName: "منطقه2-شهر شیراز",
+        period: "دوره مرداد",
+        billStatus: "قبض  تایید شده",
+        amount: 900000,
+        billResult: "جریمه",
+    },
+]
+
 
 
 const billsTable = (array) => {

@@ -3,7 +3,7 @@ export const TJBill = [
     "قبض صادر شده و فعال است"
 ]
 
-export const TZBillsTable = {
+export const billsTableTexts = {
     head : [
         "ردیف",
         "نام تجمیع کننده/توزیع کننده",
@@ -15,5 +15,17 @@ export const TZBillsTable = {
     ],
     title: "مدیریت قبض ها",
     slug: "bills",
+}
+
+export const TVBillsTableTexts = {
+    head : [
+        "ردیف",
+        "نام توزیع کننده",
+        "مقدار قبض",
+        "وضعیت عملکرد",
+        "عملیات",
+    ],
+    slug: "bills",
     button: "ایجاد پیام جدید"
 }
+

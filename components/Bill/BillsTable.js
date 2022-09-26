@@ -1,7 +1,7 @@
 import RangeDatePicker from "../Date/RangeDatePicker";
 import Export from "../Charts/Export";
 import AssessmentRoundedIcon from '@mui/icons-material/AssessmentRounded';
-import {TZBillsTable} from '/utils/texts/billsTexts'
+import {billsTableTexts} from '/utils/texts/billsTexts'
 import Table from "../Table/Table";
 import IconButton from "../Buttons/IconButton";
 import {useState} from "react";
@@ -25,7 +25,7 @@ export default function BillsTable({bills, reportsView = false, role}) {
                 <Export excel/>
             </div>
             {
-                showReports ? <BillsReport/> : <Table options = {TZBillsTable} data = {bills} role = {role}/>
+                showReports ? <BillsReport/> : <Table options = {billsTableTexts} data = {bills} role = {role}/>
             }
         </div>
     )

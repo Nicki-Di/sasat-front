@@ -8,6 +8,8 @@ import IranMap from "../TZ/IranMap";
 import TreeMap from "../Charts/TreeMap";
 import DropDown from "./DropDown";
 import AreaDropDown from "./AreaDropDown";
+import BillsTable from "../Bill/BillsTable";
+import BillsContainer from "../Bill/BillsContainer";
 
 const data1 = [
     {name: "محقق شده", value: 100000, color: "#005916", bullet: `text-success`},
@@ -43,7 +45,6 @@ export default function MainPage({userState}) {
                             <Export/>
                         </div>
                         <LineChartContainer/>
-
                     </div>
                 </div>
             }
@@ -75,7 +76,32 @@ export default function MainPage({userState}) {
                             <Export/>
                         </div>
                         <LineChartContainer/>
+                    </div>
+                </div>
+            }
 
+            {
+                /*TV*/
+                userState.role === "توانیر" &&
+                <div className = {"flex flex-col gap-16"}>
+                    <div className = {"flex flex-row justify-evenly items-center bg-s-100 rounded-lg shadow-lg p-8"}>
+                        <IranMap id = {"agg1"}/>
+                        <RadialChart data = {data1} title = {"سهمیه کاهش بار لازم الاجرا"} unit = {"MW"} bg = {false}
+                                     orientation = {"horizontal"}/>
+                    </div>
+                    <div className = {"flex flex-col bg-s-100 p-4 shadow-lg rounded-lg gap-4 "}>
+                        <p className = {"text-s-10 h2 text-center"}>وضعیت مصرف توزیع کنندگان</p>
+                        <div
+                            className = {"flex flex-row items-center justify-between gap-4 border-b pb-10 border-s-80 "}>
+                            <AreaDropDown data = {data2}/>
+                            <RangeDatePicker/>
+                            <Export/>
+                        </div>
+                        <LineChartContainer/>
+                    </div>
+                    {/*    bills*/}
+                    <div className = {"bg-s-100 shadow rounded-md"}>
+                        <BillsContainer userState = {userState}/>
                     </div>
                 </div>
             }

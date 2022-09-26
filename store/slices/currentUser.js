@@ -4,6 +4,7 @@ import {createSlice} from "@reduxjs/toolkit";
 // Create slice to combine createAction with createReducer
 const slice = createSlice({
     name: "user",
+    // TJ
     // initialState: {
     //     name: "رضا محمدی",
     //     role: "تجمیع کننده",
@@ -13,10 +14,22 @@ const slice = createSlice({
     //     password: "a@324532",
     // },
 
+    // TZ
+    // initialState: {
+    //     name: "رضا محمدی",
+    //     role: "توزیع کننده",
+    //     area: "منطقه شهر تهران",
+    //     username: "TavanirAdmin",
+    //     email: "Tajmi123@gmail.com",
+    //     password: "a@324532",
+    // },
+
+    // TV
+
     initialState: {
         name: "رضا محمدی",
-        role: "توزیع کننده",
-        area: "منطقه شهر تهران",
+        role: "توانیر",
+        area: "شرکت توانیر",
         username: "TavanirAdmin",
         email: "Tajmi123@gmail.com",
         password: "a@324532",

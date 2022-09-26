@@ -3,7 +3,7 @@ import {PieChart, Pie, Tooltip, Cell} from "recharts";
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
 import addSeparator from "../../utils/functions/addSeparator";
 
-export default function RadialChart({data, title, unit, bg = true, orientation = "vertical"}) {
+export default function RadialChart({data, title, unit, bg = true, orientation = "vertical", position, innerTitle}) {
     const [sum, setSum] = useState(0)
     useEffect(() => {
         setSum((data.reduce((sum, entry) => sum + entry.value, 0)))
@@ -44,8 +44,11 @@ export default function RadialChart({data, title, unit, bg = true, orientation =
                     <Tooltip content = {<CustomTooltip/>}/>
                 </PieChart>
                 <div
-                    className = {"absolute flex flex-col gap-4 " + (orientation === "vertical" ? "top-[35%] right-[30%]" : "right-[15%] top-[47%]")}>
-                    <p className = {"b1 text-s-60"}>{title}</p>
+                    className = {"absolute flex flex-col gap-4 " + (orientation === "vertical" ? "top-[35%] right-[30%]" : (position ? position : "top-[47%] right-[15%]"))}>
+                    {
+                        title ? <p className = {"b1 text-s-60"}>{title}</p> : <p className = {"b1 text-s-60 text-center"}>قبض توسط توزیع کننده<br/>صادر شده</p>
+                    }
+
                     <div className = {"flex flex-row items-center justify-center gap-12"}>
                         <p className = {"h2"}>{sum}</p>
                         <p className = {"b1 text-s-60"}>{unit}</p>

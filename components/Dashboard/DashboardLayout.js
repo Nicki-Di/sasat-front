@@ -25,10 +25,10 @@ export default function DashboardLayout({userState}) {
                 <div className = "flex flex-col items-center gap-2 px-4 border-b border-s-90 pb-2">
                     <img
                         className = "h-8 w-auto"
-                        src = "/common/person-icon.png"
+                        src = {userState.role === "توانیر" ? "/common/tavanir.png" : "/common/person-icon.png"}
                         alt = "layer-icon"
                     />
-                    <p className = {"b2 text-s-10"}>{`پنل ${userState.role}`}</p>
+                    {userState.role === "توانیر" ? <p className = {"b2 text-s-10"}>پنل ادمین</p> :<p className = {"b2 text-s-10"}>{`پنل ${userState.role}`}</p>}
                     <p className = {"b2 text-s-60"}>{userState.area}</p>
                 </div>
                 <nav className = "p-10 w-full flex-grow flex flex-col justify-center gap-4">
@@ -45,7 +45,7 @@ export default function DashboardLayout({userState}) {
                                 className = 'flex-shrink-0 h-6 w-6 text-s-10'
                                 aria-hidden = "true"
                             />
-                            <p className={"absolute left-2 top-2 bg-alert px-3 py text-s-100 rounded"}>1</p>
+                            <p className = {"absolute left-2 top-2 bg-alert px-3 py text-s-100 rounded"}>1</p>
                             {item.name}
                         </a>
                     ))}

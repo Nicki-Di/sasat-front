@@ -70,23 +70,23 @@ const billsTable = (array) => {
 }
 
 export default function BillsContainer({userState}) {
-    const [TJ, setTJ] = useState(false)
     const dispatcher = useDispatch()
     let billsTableArray = billsTable(billsTableRaw)
 
     useEffect(() => {
         if (userState.role === "تجمیع کننده") {
-            setTJ(true)
             dispatcher(billsActions.billsInitialized(billsStack))
         } else {
-            setTJ(false)
             dispatcher(billsActions.billsInitialized(billsTableRaw))
         }
-
     }, [userState.role]);
 
 
     return (
-        TJ ? <BillsStack bills = {billsStack}/> : <BillsTable bills = {billsTableArray}/>
+        <>
+            {userState.role === "تجمیع کننده" && <BillsStack bills = {billsStack}/>}
+            {userState.role === "توزیع کننده" && <BillsTable bills = {billsTableArray}/>}
+            {userState.role === "توانیر" && <BillsTable bills = {billsTableArray} reportsView/>}
+        </>
     )
 }

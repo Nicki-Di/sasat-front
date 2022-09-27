@@ -13,6 +13,7 @@ import Modal from "../Common/Modal";
 import {addSuccessModal, editSuccessModal} from "../../utils/texts/usersTable";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";
 import IconButton from "../Buttons/IconButton";
+import * as messagesActions from "../../store/slices/messages";
 
 
 export default function SingleUser({isPreview, user, userState}) {
@@ -38,6 +39,17 @@ export default function SingleUser({isPreview, user, userState}) {
     const editUser = async () => await router.push({
         pathname: `/dashboard/users/${router.query?.id}/edit`,
     })
+
+    const sendMessage = async () => {
+        dispatcher(messagesActions.previewMessageSet({
+            receivers: ["توزیع کننده منطقه تهران"]
+            //TODO
+            // change to user.name
+        }))
+        await router.push({
+            pathname: '/dashboard/messages/new',
+        })
+    }
 
     const buttons = [
         {text: "ویرایش", icon: <CreateIcon/>, onClick: editUser},
@@ -91,6 +103,7 @@ export default function SingleUser({isPreview, user, userState}) {
                                 className = {"bg-primary"}
                                 text = {"ارسال پیام"}
                                 icon = {<SendRoundedIcon className = {"rotate-180"}/>}
+                                onClick={sendMessage}
                             />
 
                             {

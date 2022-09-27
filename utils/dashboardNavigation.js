@@ -14,7 +14,7 @@ export const TJNavigation = [
 export const otherNavigation = [
     {name: 'داشبورد', href: '/dashboard/main', icon: DashboardRoundedIcon},
     {name: 'پیام‌', href: '/dashboard/messages', icon: EmailRoundedIcon},
-    {name: 'کاربران', href: '/dashboard/tjUsers', icon: GroupRoundedIcon},
+    {name: 'کاربران', href: '/dashboard/users', icon: GroupRoundedIcon},
     {name: 'قبض', href: '/dashboard/bills', icon: CreditCardRoundedIcon},
     {name: 'تنظیمات', href: '/dashboard/setting', icon: SettingsRoundedIcon},
 ]

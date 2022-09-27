@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import DashboardMain from "../../../components/Dashboard/DashboardMain";
 
 export default function newMessage() {
-    const userState = useSelector(state => state.userReducer);
+    const userState = useSelector(state => state.currentUserReducer);
 
     return (
         <div>

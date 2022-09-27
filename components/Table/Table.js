@@ -3,7 +3,7 @@ import Pagination from "../Common/Pagination";
 import StatusBadge from "./StatusBadge";
 import BillResultBadge from "../Bill/BillResultBadge";
 import BillStatusBadge from "../Bill/BillStatusBadge";
-import addSeparator from "../../utils/functions/addSeparator";
+import reformat from "../../utils/functions/reformat";
 
 const formData = (data, index, slug, role) => {
     const rows = [<td
@@ -13,7 +13,7 @@ const formData = (data, index, slug, role) => {
         if (property !== 'status' && property !== 'text' && property !== "billResult" && property !== "billStatus") {
             rows.push(<td
                 key={property}
-                className = "h-20 text-center  whitespace-nowrap b1 text-s-30 border-b border-s-80">{addSeparator(data[property])}</td>)
+                className = "h-20 text-center  whitespace-nowrap b1 text-s-30 border-b border-s-80">{reformat(data[property])}</td>)
         }
         if (property === 'status') {
             rows.push(<td

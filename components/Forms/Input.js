@@ -1,7 +1,7 @@
 import ModeRoundedIcon from '@mui/icons-material/ModeRounded';
 import WarningRoundedIcon from '@mui/icons-material/WarningRounded';
 import {useEffect} from "react";
-import addSeparator from "../../utils/functions/addSeparator";
+import reformat from "../../utils/functions/reformat";
 
 export default function Input({
                                   type,
@@ -57,7 +57,7 @@ export default function Input({
                 placeholder = {placeholder}
                 className = {"w-full rounded b1 p-2 border-2 focus:ring-0 focus:outline-0 " + (error ? "border-alert" : "border-s-60 focus:border-s-10 hover:border-s-10 transition-all duration-200 ")}
                 onChange = {e => {
-                    setState?.(addSeparator(e.target.value));
+                    setState?.(reformat(e.target.value, true));
                 }}
             />
         }

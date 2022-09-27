@@ -1,38 +1,32 @@
 import KeyboardReturnRoundedIcon from '@mui/icons-material/KeyboardReturnRounded';
 import Link from "next/link";
-import AddButton from "../Buttons/AddButton";
 import Input from "../Forms/Input";
 import SimpleDatePicker from "../Date/SimpleDatePicker";
 import DropDown from "../Common/DropDown";
 import {useState} from "react";
 import FileUpload from "../Forms/FileUpload";
-import * as tjUsersActions from "../../store/slices/tjUsers";
+import * as usersActions from "../../store/slices/users";
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import {useDispatch} from "react-redux";
 import {useRouter} from "next/router";
 
 
-const data = [
-    {name: 'D-1'},
-    {name: 'D-2'},
-    {name: 'D-3'},
-    {name: 'D-4'},
-]
+const data = ['D-1', 'D-2', 'D-3']
 
 
-export default function NewTJUserContainer() {
-    const [name, setName] = useState("");
-    const [formula, setFormula] = useState(data[0]);
+export default function NewTJUserContainer({previewUser}) {
+    const [name, setName] = useState(previewUser?.name ?? "");
+    const [formula, setFormula] = useState(previewUser?.formula ?? data[0]);
     const [selectedFile, setSelectedFile] = useState("");
-    const [email, setEmail] = useState("");
-    const [p1, setP1] = useState("");
-    const [contractDate, setContractDate] = useState("");
-    const [penalty, setPenalty] = useState("");
-    const [p2, setP2] = useState("");
-    const [feeders, setFeeders] = useState("");
-    const [reward, setReward] = useState("");
-    const [contractNumber, setContractNumber] = useState("");
-    const [load, setLoad] = useState("");
+    const [email, setEmail] = useState(previewUser?.email ?? "");
+    const [p1, setP1] = useState(previewUser?.p1 ?? "");
+    const [contractDate, setContractDate] = useState(previewUser.contractDate ?? "");
+    const [penalty, setPenalty] = useState(previewUser?.penalty ?? "");
+    const [p2, setP2] = useState(previewUser?.p2 ?? "");
+    const [feeders, setFeeders] = useState(previewUser?.feeders ?? "");
+    const [reward, setReward] = useState(previewUser?.reward ?? "");
+    const [contractNumber, setContractNumber] = useState(previewUser?.contractNumber ?? "");
+    const [load, setLoad] = useState(previewUser?.load ?? "");
 
     const router = useRouter();
     const dispatcher = useDispatch();
@@ -40,7 +34,7 @@ export default function NewTJUserContainer() {
     return (
         <div className = "flex flex-col gap-4 p-8 ">
             <div className = {"flex flex-row items-center justify-between border-b border-s-80 pb-8"}>
-                <Link href = {"/dashboard/tjUsers"}>
+                <Link href = {"/dashboard/users"}>
                     <a className = {"flex flex-row gap-4 "}>
                         <KeyboardReturnRoundedIcon className = {"rotate-180"}/>
                         <p className = {"b1 text-s-10"}>بازگشت به صفحه قبل</p>
@@ -50,9 +44,9 @@ export default function NewTJUserContainer() {
                 <div
                     className = {"flex flex-row bg-primary b1 rounded py-2 px-4 gap-4 items-center justify-center cursor-pointer"}
                     onClick = {async () => {
-                        dispatcher(tjUsersActions.previewTJUserSet({
+                        dispatcher(usersActions.previewUserSet({
                             name,
-                            formula: formula.name,
+                            formula,
                             fileName: selectedFile?.name,
                             email,
                             p1,
@@ -65,7 +59,7 @@ export default function NewTJUserContainer() {
                             load
                         }))
                         await router.push({
-                            pathname: '/dashboard/tjUsers/preview',
+                            pathname: '/dashboard/users/TJ/preview',
                         })
                     }}
                 >
@@ -90,7 +84,7 @@ export default function NewTJUserContainer() {
                 />
                 <Input type = {"text"} title = {"ایمیل کاربر"} name = {"email"} state = {email} setState = {setEmail}/>
                 <Input type = {"text"} title = {"پارامتر 1 فرمول"} name = {"p1"} state = {p1} setState = {setP1}/>
-                <SimpleDatePicker title = {"تاریخ شروع قرارداد"}/>
+                <SimpleDatePicker title = {"تاریخ شروع قرارداد"} dateState={contractDate} setDateState={setContractDate}/>
                 <Input type = {"text"} title = {"تعرفه جریمه"} name = {"penalty"} unit = {"ریال"} state = {penalty}
                        setState = {setPenalty}/>
                 <Input type = {"text"} title = {"پارامتر 2 فرمول"} name = {"p2"} state = {p2} setState = {setP2}/>

@@ -9,7 +9,7 @@ export default function DropDown({data, selected, setSelected, className}) {
         query === ''
             ? data
             : data.filter((item) =>
-                item.name
+                item
                     .replace(/\s+/g, '')
                     .includes(query.replace(/\s+/g, ''))
             )
@@ -21,7 +21,7 @@ export default function DropDown({data, selected, setSelected, className}) {
                         className = "relative w-full cursor-default overflow-hidden rounded focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75 focus-visible:ring-offset-2">
                         <Combobox.Input
                             className = {"w-full py-2 px-6 b1 leading-5 text-s-10 focus:ring-0 " + className}
-                            displayValue = {(item) => item.name}
+                            displayValue = {(item) => item}
                             onChange = {(event) => setQuery(event.target.value)}
                         />
                         <Combobox.Button className = "absolute inset-y-0 left-2 flex items-center pr-2">
@@ -60,7 +60,7 @@ export default function DropDown({data, selected, setSelected, className}) {
                         <span
                             className = {"block truncate b1"}
                         >
-                          {item.name}
+                          {item}
                         </span>
                                                 {selected ? (
                                                     <span

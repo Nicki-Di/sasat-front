@@ -28,3 +28,7 @@ export const primaryInfo = [
     "نام کاربری",
     "ایمیل کاربری",
 ]
+
+export const load = ["سهمیه کاهش بار لازم الاجرا سالیانه"]
+
+export const TJs = ["تجمیع کننده های تحت نظر"]

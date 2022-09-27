@@ -15,13 +15,7 @@ const data1 = [
     {name: "مانده تعهد", value: 500000, color: "#808080", bullet: "text-s-60"}
 ]
 
-const data2 = [
-    {name: 'همه مناطق'},
-    {name: 'منطقه ۱'},
-    {name: 'منطقه ۲'},
-    {name: 'منطقه ۳'},
-    {name: 'منطقه ۴'},
-]
+const data2 = ['همه مناطق', 'منطقه ۱', 'منطقه ۲', 'منطقه ۳', 'منطقه ۴']
 
 const greens = [2, 4, 7, 9, 11, 15, 18, 20, 26, 39]
 
@@ -72,7 +66,7 @@ export default function MainPage({userState}) {
                 userState.role === "توزیع کننده" &&
                 <div className = {"flex flex-col gap-16"}>
                     <div className = {"flex flex-row justify-evenly items-center bg-s-100 rounded-lg shadow-lg p-8"}>
-                        <IranMap id = {"agg1"}/>
+                        <IranMap id = {1}/>
                         <RadialChart data = {data1} title = {"سهمیه کاهش بار لازم الاجرا"} unit = {"MW"} bg = {false}
                                      orientation = {"horizontal"}/>
                     </div>

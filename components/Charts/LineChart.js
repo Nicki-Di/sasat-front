@@ -7,7 +7,7 @@ import {
     Tooltip,
     ReferenceLine, ResponsiveContainer
 } from "recharts";
-import addSeparator from "../../utils/functions/addSeparator";
+import reformat from "../../utils/functions/reformat";
 
 export default function LineChart({data, unit, base}) {
 
@@ -15,7 +15,7 @@ export default function LineChart({data, unit, base}) {
         if (active && payload && payload.length) {
             return (
                 <div className = "flex flex-row bg-s-100 p-4 shadow rounded-md">
-                    <p>{`${addSeparator(payload[0].value)}${unit}`}</p>
+                    <p>{`${reformat(payload[0].value)}${unit}`}</p>
                 </div>
             );
         }
@@ -34,7 +34,7 @@ export default function LineChart({data, unit, base}) {
                     height={30}
                 />
                 <text x={props.viewBox.x} y={props.viewBox.y} fill="#111" dy={4} dx={props.viewBox.width - 65}>
-                    {`${addSeparator(base)}${unit} :خط مبنا`}
+                    {`${reformat(base)}${unit} :خط مبنا`}
                 </text>
             </g>
         );

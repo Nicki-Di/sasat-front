@@ -25,7 +25,6 @@ const slice = createSlice({
     // },
 
     // TV
-
     initialState: {
         name: "رضا محمدی",
         role: "توانیر",
@@ -34,6 +33,7 @@ const slice = createSlice({
         email: "Tajmi123@gmail.com",
         password: "a@324532",
     },
+
     reducers: {
         userSet: (state, action) => {
             state.name = action.payload.name

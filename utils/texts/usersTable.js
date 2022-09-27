@@ -1,4 +1,4 @@
-export const options = {
+export const tjOptions = {
     head : [
         "ردیف",
         "نام تجمیع‌کننده",
@@ -8,8 +8,7 @@ export const options = {
         "شماره قرارداد",
         "عملیات",
     ],
-    title: "مدیریت کاربران",
-    slug: "tjUsers",
+    slug: "users",
     button: "تجمیع‌کننده جدید"
 }
 
@@ -20,6 +19,20 @@ export const noUserModal = {
 
 export const addSuccessModal = {
     title: "تعریف کاربر جدید موفقیت آمیز بود!",
-    body: "اطلاعات کاربر جدید در سیستم با موفقیت ثبت شد\n" +
-        "اطلاعات ورود برای ایمیل ثبت شده ارسال شده است"
+    body: "اطلاعات کاربر جدید در سیستم با موفقیت ثبت شد و اطلاعات ورود برای ایمیل ثبت شده ارسال شده است"
+}
+
+export const editSuccessModal = {
+    title: "ویرایش اطلاعات موفقیت آمیز بود!",
+    body: "اطلاعات کاربر  با موفقیت در سیستم ثبت شد."
+}
+
+export const tzOptions = {
+    head : [
+        "ردیف",
+        "نام توزیع کننده",
+        "سهمیه کاهش بار لازم به اجرا سالیانه",
+        "عملیات",
+    ],
+    slug: "users",
 }

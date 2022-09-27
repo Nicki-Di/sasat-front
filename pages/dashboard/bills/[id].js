@@ -7,7 +7,7 @@ import TZActiveBill from "../../../components/Bill/TZActiveBill";
 export default function bill() {
     const router = useRouter()
     const {id} = router.query
-    const userState = useSelector(state => state.userReducer);
+    const userState = useSelector(state => state.currentUserReducer);
     const billInfo = useSelector(state => state.billsReducer)[id]
 
     return (

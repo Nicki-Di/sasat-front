@@ -1,4 +1,4 @@
-import addSeparator from "../../utils/functions/addSeparator";
+import reformat from "../../utils/functions/reformat";
 import {TJBill} from "../../utils/texts/billsTexts";
 import BillResultBadge from "./BillResultBadge";
 import KeyboardArrowLeftRoundedIcon from "@mui/icons-material/KeyboardArrowLeftRounded";
@@ -42,7 +42,7 @@ export default function Bill({info, lastBill}) {
                     <p className = {"text-s-10"}>{info?.period}</p>
                     <p className = {"text-s-10"}>{`${info?.date?.year}/${info?.date?.month}/${info?.date?.day}`}</p>
                     {notAccepted && (<p className = {"text-s-10"}>{`${info?.daysLeft}  روز مانده`}</p>)}
-                    <p className = {"text-s-10"}>{addSeparator(info?.amount) + (info?.billResult === "جریمه" ? " - " : " + ")}</p>
+                    <p className = {"text-s-10"}>{reformat(info?.amount) + (info?.billResult === "جریمه" ? " - " : " + ")}</p>
                     <BillResultBadge status = {info?.billResult}/>
                 </div>
                 <BillStatusBadge status = {info?.billStatus}/>

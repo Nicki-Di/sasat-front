@@ -1,5 +1,5 @@
 import {Treemap, ResponsiveContainer} from "recharts";
-import addSeparator from "../../utils/functions/addSeparator"
+import reformat from "../../utils/functions/reformat"
 const data = [
     {
         name: "منطقه 6",
@@ -105,7 +105,7 @@ const CustomizedContent = (props) => {
                     strokeOpacity = {0}
                     className={"b1"}
                 >
-                    {addSeparator(value)}
+                    {reformat(value)}
                 </text>
             ) : null}
 

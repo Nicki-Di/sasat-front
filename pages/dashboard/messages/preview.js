@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 import DashboardMain from "../../../components/Dashboard/DashboardMain";
 
 export default function preview() {
-    const userState = useSelector(state => state.userReducer);
+    const userState = useSelector(state => state.currentUserReducer);
     const previewMessage = useSelector(state => state.messagesReducer)[0]
 
     return (

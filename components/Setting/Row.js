@@ -1,6 +1,8 @@
 import styles from "../../styles/General.module.css"
+import reformat from "../../utils/functions/reformat";
 
-export default function Row({keys, values, lastRow, downloadButton}) {
+export default function Row({keys, values, units = [""], lastRow, downloadButton}) {
+
     let cols
     switch (keys.length) {
         case 2 :
@@ -24,8 +26,9 @@ export default function Row({keys, values, lastRow, downloadButton}) {
                 }
                 {
                     values.map((item, index) =>
-                        <div key = {index} className = {" flex flex-row gap-8 items-center [word-spacing:0.16rem] text-s-10"}>
-                            <p className = {" overflow-hidden text-ellipsis whitespace-nowrap w-[22ch]"}>{item}</p>
+                        <div key = {index}
+                             className = {" flex flex-row gap-8 items-center [word-spacing:0.16rem] text-s-10"}>
+                            <p className = {"overflow-hidden text-ellipsis whitespace-nowrap w-[22ch]"}>{`${reformat(item)} ${units[index] ?? ""}`}</p>
                             {downloadButton && index === 1 &&
                                 <p className = {"b1 text-s-10 border-b border-primary cursor-pointer"}>دانلود</p>}
                         </div>

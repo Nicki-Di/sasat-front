@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import {PieChart, Pie, Tooltip, Cell} from "recharts";
 import CircleRoundedIcon from '@mui/icons-material/CircleRounded';
-import addSeparator from "../../utils/functions/addSeparator";
+import reformat from "../../utils/functions/reformat";
 
 export default function RadialChart({data, title, unit, bg = true, orientation = "vertical", position, innerTitle}) {
     const [sum, setSum] = useState(0)
@@ -12,7 +12,7 @@ export default function RadialChart({data, title, unit, bg = true, orientation =
         if (active && payload && payload.length) {
             return (
                 <div className = "flex flex-row bg-s-100 p-4 shadow rounded-md">
-                    <p>{`${addSeparator(payload[0].value)}${unit} :${payload[0].name}`}</p>
+                    <p>{`${reformat(payload[0].value)}${unit} :${payload[0].name}`}</p>
                 </div>
             );
         }
@@ -62,7 +62,7 @@ export default function RadialChart({data, title, unit, bg = true, orientation =
                                 <CircleRoundedIcon className = {entry.bullet}/>
                                 <div className = {"flex flex-col items-center justify-center gap-2"}>
                                     <p className = {"text-s-30"}>{entry.name}</p>
-                                    <p className = {"h2 text-s-10"}>{addSeparator(entry.value)}</p>
+                                    <p className = {"h2 text-s-10"}>{reformat(entry.value)}</p>
                                 </div>
                                 <p className = {"text-s-60 b1"}>{unit}</p>
                             </div>

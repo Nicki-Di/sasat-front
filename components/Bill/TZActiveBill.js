@@ -1,4 +1,4 @@
-import addSeparator from "../../utils/functions/addSeparator";
+import reformat from "../../utils/functions/reformat";
 import BillResultBadge from "./BillResultBadge";
 import BillStatusBadge from "./BillStatusBadge";
 import Input from "../Forms/Input";
@@ -31,7 +31,7 @@ export default function TZActiveBill({billInfo}) {
 
                     <p className = {"text-s-30"}>{billInfo.userName}</p>
                     <p className = {"text-s-10"}>{billInfo.period}</p>
-                    <p className = {"text-s-10"}>{addSeparator(billInfo.amount)}</p>
+                    <p className = {"text-s-10"}>{reformat(billInfo.amount)}</p>
                     <BillResultBadge status = {billInfo.billResult}/>
                 </div>
                 <BillStatusBadge status = {"قبض در انتظار صدور"}/>

@@ -10,6 +10,7 @@ body {
     direction: rtl;
     min-height: 100vh;
     background-color: #F5F5F5;
+    color: #1A1A1A;
 }
 
 a {

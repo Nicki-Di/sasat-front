@@ -11,11 +11,11 @@ function classNames(...classes) {
 export default function DashboardLayout({userState}) {
     const [navigation, setNavigation] = useState(otherNavigation);
     const router = useRouter();
-
-
+    const role = userState.role
     useEffect(() => {
-        userState.role === "تجمیع کننده" ? setNavigation(TJNavigation) : setNavigation(otherNavigation)
-    }, [userState.role]);
+        role === "تجمیع کننده" ? setNavigation(TJNavigation) : setNavigation(otherNavigation)
+    }, [role])
+
 
     return (
         <div>
@@ -25,10 +25,11 @@ export default function DashboardLayout({userState}) {
                 <div className = "flex flex-col items-center gap-2 px-4 border-b border-s-90 pb-2">
                     <img
                         className = "h-8 w-auto"
-                        src = {userState.role === "توانیر" ? "/common/tavanir.png" : "/common/person-icon.png"}
+                        src = {(role === "توانیر" || role === "پژوهشگاه") ? "/common/tavanir.png" : "/common/person-icon.png"}
                         alt = "layer-icon"
                     />
-                    {userState.role === "توانیر" ? <p className = {"b2 text-s-10"}>پنل ادمین</p> :<p className = {"b2 text-s-10"}>{`پنل ${userState.role}`}</p>}
+                    {role === "توانیر" ? <p className = {"b2 text-s-10"}>پنل ادمین</p> :
+                        <p className = {"b2 text-s-10"}>{`پنل ${role}`}</p>}
                     <p className = {"b2 text-s-60"}>{userState.area}</p>
                 </div>
                 <nav className = "p-10 w-full flex-grow flex flex-col justify-center gap-4">

@@ -26,7 +26,7 @@ const tjUsersArray = [
     {
         name: "تجمیع شماره ۱۱",
         formula: "D-15",
-        penalty:  9000,
+        penalty: 9000,
         reward: 11000,
         contractNumber: "3556",
         username: "Taj123",
@@ -72,13 +72,14 @@ export default function users() {
     const tjUsersTableArray = usersTable(tjUsersArray, 5)
     const tzUsersTableArray = usersTable(tzUsersArray, 2)
     const userState = useSelector(state => state.currentUserReducer);
+    const role = userState.role
 
     useEffect(() => {
-        if (userState.role === "توزیع کننده")
+        if (role === "توزیع کننده")
             dispatcher(usersActions.usersInitialized(tjUsersArray))
-        if (userState.role === "توانیر")
+        if (role === "توانیر")
             dispatcher(usersActions.usersInitialized(tzUsersArray))
-    }, [])
+    }, [role])
 
 
     return (
@@ -88,12 +89,12 @@ export default function users() {
                 <div className = {"flex flex-row justify-between items-center p-8 "}>
                     <p className = {"h2 text-s-10"}>مدیریت کاربران</p>
                     {
-                        (userState.role === "توزیع کننده") &&
+                        (role === "توزیع کننده") &&
                         <AddButton slug = {`${tjOptions.slug}/TJ/new`} text = {tjOptions.button}/>
                     }
                 </div>
                 {
-                    (userState.role === "توزیع کننده") &&
+                    (role === "توزیع کننده") &&
                     <>
                         <Table options = {tjOptions} data = {tjUsersTableArray}/>
                         <Modal isOpen = {modal} setIsOpen = {setModal} title = {noUserModal.title}
@@ -103,7 +104,7 @@ export default function users() {
                     </>
                 }
                 {
-                    (userState.role === "توانیر") &&
+                    (role === "توانیر" || role === "پژوهشگاه") &&
                     <Table options = {tzOptions} data = {tzUsersTableArray}/>
                 }
 

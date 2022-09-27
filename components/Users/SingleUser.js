@@ -8,7 +8,7 @@ import SendRoundedIcon from '@mui/icons-material/SendRounded';
 import RemoveCircleOutlineRoundedIcon from '@mui/icons-material/RemoveCircleOutlineRounded';
 import DeleteRoundedIcon from '@mui/icons-material/DeleteRounded';
 import {primaryInfo, billFormula, billTariff, billContract, billDuty, load, TJs} from "../../utils/texts/info";
-import Row from "../Setting/Row";
+import Row from "../Common/Row";
 import Modal from "../Common/Modal";
 import {addSuccessModal, editSuccessModal} from "../../utils/texts/usersTable";
 import ArrowBackRoundedIcon from "@mui/icons-material/ArrowBackRounded";

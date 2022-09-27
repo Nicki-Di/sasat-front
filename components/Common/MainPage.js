@@ -38,12 +38,12 @@ const TVBillsTable = [
 ]
 
 export default function MainPage({userState}) {
-
+    const role = userState.role
     return (
         <main className = "w-[87%] mr-auto p-8">
             {
                 /*TJ*/
-                userState.role === "تجمیع کننده" &&
+                role === "تجمیع کننده" &&
                 <div className = {"flex flex-col gap-16"}>
                     <div className = {"flex flex-row gap-16"}>
                         <RadialChart data = {data1} title = {"سهمیه کاهش بار لازم الاجرا"} unit = {"MW"}/>
@@ -63,7 +63,7 @@ export default function MainPage({userState}) {
 
             {
                 /*TZ*/
-                userState.role === "توزیع کننده" &&
+                role === "توزیع کننده" &&
                 <div className = {"flex flex-col gap-16"}>
                     <div className = {"flex flex-row justify-evenly items-center bg-s-100 rounded-lg shadow-lg p-8"}>
                         <IranMap id = {1}/>
@@ -94,7 +94,7 @@ export default function MainPage({userState}) {
 
             {
                 /*TV*/
-                userState.role === "توانیر" &&
+                (role === "توانیر" || role === "پژوهشگاه")&&
                 <div className = {"flex flex-col gap-16"}>
                     <div className = {"flex flex-col bg-s-100 p-4 shadow-lg rounded-lg gap-4"}>
                         <div

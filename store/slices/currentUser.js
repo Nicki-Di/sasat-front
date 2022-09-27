@@ -25,12 +25,22 @@ const slice = createSlice({
     // },
 
     // TV
+    // initialState: {
+    //     name: "رضا محمدی",
+    //     role: "توانیر",
+    //     area: "شرکت توانیر",
+    //     username: "TavanirAdmin",
+    //     email: "Tajmi123@gmail.com",
+    //     password: "a@324532",
+    // },
+
+    // PJ
     initialState: {
         name: "رضا محمدی",
-        role: "توانیر",
-        area: "شرکت توانیر",
-        username: "TavanirAdmin",
-        email: "Tajmi123@gmail.com",
+        role: "پژوهشگاه",
+        area: "پژوهشگاه نیرو",
+        username: "Pazhuheshgah",
+        email: "pazhuhesh123@gmail.com",
         password: "a@324532",
     },
 

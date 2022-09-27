@@ -3,6 +3,14 @@ export const userInfo = [
     "ایمیل کاربری",
     "رمز ورود"
 ]
+
+export const secondAdminInfo = [
+    "ادمین دوم",
+    "نام کاربری",
+    "ایمیل کاربری",
+]
+
+
 export const billFormula = [
     "نوع فرمول",
     "پارامتر 1 فرمول",

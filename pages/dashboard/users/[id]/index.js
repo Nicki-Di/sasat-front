@@ -9,10 +9,13 @@ export default function message() {
     const {id} = router.query
     const userState = useSelector(state => state.currentUserReducer);
     const user = useSelector(state => state.usersReducer)[id]
-
+    const breadcrumb = [
+        {name: 'مدیریت کاربران', url: "/dashboard/users"},
+        {name: ' کاربر', url: "#"},
+    ];
     return (
         <div>
-            <DashboardLayout userState = {userState}/>
+            <DashboardLayout userState = {userState} breadcrumb={breadcrumb}/>
             <DashboardMain>
                 <SingleUser isPreview = {false} user = {user} userState = {userState}/>
             </DashboardMain>

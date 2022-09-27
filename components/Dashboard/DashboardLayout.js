@@ -1,14 +1,14 @@
 import {useEffect, useState} from 'react'
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import {TJNavigation, otherNavigation} from '../../utils/dashboardNavigation'
-import {useSelector} from "react-redux";
 import {useRouter} from "next/router";
+import BreadCrumb from "./Breadcrumb";
 
 function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function DashboardLayout({userState}) {
+export default function DashboardLayout({userState, breadcrumb = []}) {
     const [navigation, setNavigation] = useState(otherNavigation);
     const router = useRouter();
     const role = userState.role
@@ -58,11 +58,11 @@ export default function DashboardLayout({userState}) {
             <div className = "md:w-[87%] flex flex-col mr-auto">
                 {/*header*/}
                 <div className = "sticky top-0 flex-shrink-0 flex h-16 bg-s-100">
-                    <div className = "flex-1 px-4 flex justify-between">
-                        <div className = "flex-1 flex w-full md:ml-0">
-                            {/* Header */}
+                    <div className = "flex-1 px-4 flex justify-between mx-4 ">
+                        <div className = "flex-1 flex w-full md:ml-0 items-center">
+                            <BreadCrumb items={breadcrumb}/>
                         </div>
-                        <div className = "ml-4 flex items-center md:ml-6">
+                        <div className = "flex items-center">
                             <div
                                 className = "flex flex-row gap-3 p-1 rounded-full text-s-10 focus:outline-none focus:ring-0 cursor-pointer ">
                                 <p>خروج از پنل</p>

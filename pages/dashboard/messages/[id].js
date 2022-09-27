@@ -10,9 +10,13 @@ export default function message() {
     const userState = useSelector(state => state.currentUserReducer);
     const message = useSelector(state => state.messagesReducer)[id]
 
+    const breadcrumb = [
+        {name: 'پیام ها', url: "/dashboard/messages"},
+        {name: ' پیام', url: "#"},
+    ];
     return (
         <div>
-            <DashboardLayout userState = {userState}/>
+            <DashboardLayout userState = {userState} breadcrumb={breadcrumb}/>
             <DashboardMain>
                 <SingleMessage isPreview = {false} message = {message}/>
             </DashboardMain>

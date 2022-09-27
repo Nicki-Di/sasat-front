@@ -12,10 +12,13 @@ export default function edit() {
     const originalUser = useSelector(state => state.usersReducer)[id]
     // TV:
     const user = {name: editUser?.name || originalUser?.name, load: editUser?.load || originalUser?.load}
-
+    const breadcrumb = [
+        {name: 'مدیریت کاربران', url: "/dashboard/users"},
+        {name: 'ویرایش کاربر توزیع کننده', url: ""},
+    ];
     return (
         <div>
-            <DashboardLayout userState = {userState}/>
+            <DashboardLayout userState = {userState} breadcrumb={breadcrumb}/>
             <DashboardMain>
                 <EditTZ id={id} editUser={user}/>
             </DashboardMain>

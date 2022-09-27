@@ -10,9 +10,13 @@ export default function bill() {
     const userState = useSelector(state => state.currentUserReducer);
     const billInfo = useSelector(state => state.billsReducer)[id]
 
+    const breadcrumb = [
+        {name: 'مدیریت قبض ها', url: "/dashboard/bills"},
+        {name: `قبض تجمیع کننده ${billInfo?.userName}`, url: "#"},
+    ];
     return (
         <div>
-            <DashboardLayout userState = {userState}/>
+            <DashboardLayout userState = {userState} breadcrumb={breadcrumb}/>
             <main className = {"w-[87%] mr-auto p-8 flex flex-col gap-16 items-center "}>
                 {
                     (billInfo?.billStatus ===  "قبض در انتظار صدور" && userState.role === "تجمیع کننده") ? <TZActiveBill billInfo={billInfo}/> : <Bill info = {billInfo} lastBill = {false}/>

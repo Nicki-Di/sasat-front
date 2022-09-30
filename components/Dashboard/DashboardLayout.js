@@ -46,7 +46,8 @@ export default function DashboardLayout({userState, breadcrumb = []}) {
                                 className = 'flex-shrink-0 h-6 w-6 text-s-10'
                                 aria-hidden = "true"
                             />
-                            <p className = {"absolute left-2 top-2 bg-alert px-3 py text-s-100 rounded"}>1</p>
+                            {/*Notification*/}
+                            <p className = {"absolute left-2 top-2 bg-alert px-3 py text-s-100 rounded"}>{item.count > 0 && item.count}</p>
                             {item.name}
                         </a>
                     ))}
@@ -60,7 +61,7 @@ export default function DashboardLayout({userState, breadcrumb = []}) {
                 <div className = "sticky top-0 flex-shrink-0 flex h-16 bg-s-100">
                     <div className = "flex-1 px-4 flex justify-between mx-4 ">
                         <div className = "flex-1 flex w-full md:ml-0 items-center">
-                            <BreadCrumb items={breadcrumb}/>
+                            <BreadCrumb items = {breadcrumb}/>
                         </div>
                         <div className = "flex items-center">
                             <div

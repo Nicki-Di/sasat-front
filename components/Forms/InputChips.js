@@ -1,7 +1,7 @@
 import {useState} from "react";
 import CloseRoundedIcon from "@mui/icons-material/CloseRounded";
 
-export default function InputChips({title, state, setState}) {
+export default function InputChips({title, state, setState, name}) {
     const [temp, setTemp] = useState([])
 
     return (
@@ -11,7 +11,7 @@ export default function InputChips({title, state, setState}) {
             </p>
             <input
                 type = {"text"}
-                name = {"feeders"}
+                name = {name}
                 value = {temp}
                 className = {"my-2 w-full rounded b1 p-2 border-2 focus:ring-0 focus:outline-0 border-s-60 focus:border-s-10 hover:border-s-10 transition-all duration-200"}
                 onChange = {e => {

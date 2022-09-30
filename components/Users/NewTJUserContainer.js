@@ -91,7 +91,7 @@ export default function NewTJUserContainer({previewUser}) {
                 <Input type = {"text"} title = {"پارامتر 2 فرمول"} name = {"p2"} state = {p2} setState = {setP2}/>
                 {/*<Input type = {"text"} title = {"فیدر های تحت نظر"} name = {"feeders"} state = {feeders}*/}
                 {/*       setState = {setFeeders}/>*/}
-                <InputChips title = {"فیدر های تحت نظر"} state = {feeders} setState = {setFeeders}/>
+                <InputChips title = {"فیدر های تحت نظر"} state = {feeders} setState = {setFeeders} name = {"feeders"}/>
                 <Input type = {"text"} title = {"تعرفه پاداش"} name = {"reward"} unit = {"ریال"} state = {reward}
                        setState = {setReward}/>
                 <Input type = {"text"} title = {"شماره قرارداد"} name = {"contractNumber"}

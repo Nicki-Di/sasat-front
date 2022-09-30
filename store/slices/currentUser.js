@@ -15,24 +15,24 @@ const slice = createSlice({
     // },
 
     // TZ
-    // initialState: {
-    //     name: "رضا محمدی",
-    //     role: "توزیع کننده",
-    //     area: "منطقه شهر تهران",
-    //     username: "TavanirAdmin",
-    //     email: "Tajmi123@gmail.com",
-    //     password: "a@324532",
-    // },
-
-    // TV
     initialState: {
         name: "رضا محمدی",
-        role: "توانیر",
-        area: "شرکت توانیر",
+        role: "توزیع کننده",
+        area: "منطقه شهر تهران",
         username: "TavanirAdmin",
         email: "Tajmi123@gmail.com",
         password: "a@324532",
     },
+
+    // TV
+    // initialState: {
+    //     name: "رضا محمدی",
+    //     role: "توانیر",
+    //     area: "شرکت توانیر",
+    //     username: "TavanirAdmin",
+    //     email: "Tajmi123@gmail.com",
+    //     password: "a@324532",
+    // },
 
     // PJ
     // initialState: {

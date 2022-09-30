@@ -9,6 +9,7 @@ import * as usersActions from "../../store/slices/users";
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import {useDispatch} from "react-redux";
 import {useRouter} from "next/router";
+import InputChips from "../Forms/InputChips";
 
 
 const data = ['D-1', 'D-2', 'D-3']
@@ -23,7 +24,7 @@ export default function NewTJUserContainer({previewUser}) {
     const [contractDate, setContractDate] = useState(previewUser.contractDate ?? "");
     const [penalty, setPenalty] = useState(previewUser?.penalty ?? "");
     const [p2, setP2] = useState(previewUser?.p2 ?? "");
-    const [feeders, setFeeders] = useState(previewUser?.feeders ?? "");
+    const [feeders, setFeeders] = useState(previewUser?.feeders ?? []);
     const [reward, setReward] = useState(previewUser?.reward ?? "");
     const [contractNumber, setContractNumber] = useState(previewUser?.contractNumber ?? "");
     const [load, setLoad] = useState(previewUser?.load ?? "");
@@ -88,8 +89,9 @@ export default function NewTJUserContainer({previewUser}) {
                 <Input type = {"text"} title = {"تعرفه جریمه"} name = {"penalty"} unit = {"ریال"} state = {penalty}
                        setState = {setPenalty}/>
                 <Input type = {"text"} title = {"پارامتر 2 فرمول"} name = {"p2"} state = {p2} setState = {setP2}/>
-                <Input type = {"text"} title = {"فیدر های تحت نظر"} name = {"feeders"} state = {feeders}
-                       setState = {setFeeders}/>
+                {/*<Input type = {"text"} title = {"فیدر های تحت نظر"} name = {"feeders"} state = {feeders}*/}
+                {/*       setState = {setFeeders}/>*/}
+                <InputChips title = {"فیدر های تحت نظر"} state = {feeders} setState = {setFeeders}/>
                 <Input type = {"text"} title = {"تعرفه پاداش"} name = {"reward"} unit = {"ریال"} state = {reward}
                        setState = {setReward}/>
                 <Input type = {"text"} title = {"شماره قرارداد"} name = {"contractNumber"}

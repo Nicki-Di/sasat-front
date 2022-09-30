@@ -11,6 +11,7 @@ export default function preview() {
         {name: 'فرم تعریف کاربر جدید', url: "/dashboard/users/TJ/new"},
         {name: 'تایید اطلاعات ثبت شده', url: ""},
     ];
+    console.log(previewUser)
     return (
         <div>
             <DashboardLayout userState = {userState} breadcrumb={breadcrumb}/>

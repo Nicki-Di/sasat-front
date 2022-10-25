@@ -50,7 +50,7 @@ export default function RadialChart({data, title, unit, bg = true, orientation =
                     }
 
                     <div className = {"flex flex-row items-center justify-center gap-12"}>
-                        <p className = {"h2"}>{sum}</p>
+                        <p className = {"h2"}>{reformat(sum)}</p>
                         <p className = {"b1 text-s-60"}>{unit}</p>
                     </div>
 

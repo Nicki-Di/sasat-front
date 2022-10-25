@@ -68,7 +68,7 @@ export default function NewTJUserContainer({previewUser}) {
                     <AddRoundedIcon/>
                 </div>
             </div>
-            <div className = {"grid grid-cols-3 gap-x-24 gap-y-12 "}>
+            <form className = {"grid grid-cols-3 gap-x-24 gap-y-12 "}>
                 <Input type = {"text"} title = {"نام تجمیع کننده"} name = {"TJname"} state = {name}
                        setState = {setName}/>
                 <div>
@@ -101,7 +101,7 @@ export default function NewTJUserContainer({previewUser}) {
                 <Input type = {"text"} title = {"کاهش بار لازم الاجرا"} name = {"load"} unit = {"MW"} state = {load}
                        setState = {setLoad}/>
 
-            </div>
+            </form>
         </div>
     )
 }
